@@ -79,6 +79,7 @@
     if (CFG.mapImageUrl) {
       canvas.classList.add("has-image");
       canvas.style.backgroundImage = `url(${CFG.mapImageUrl})`;
+      ParkCore.fitCanvasToImage(canvas, CFG.mapImageUrl);
     }
 
     canvas.addEventListener("click", (e) => {
