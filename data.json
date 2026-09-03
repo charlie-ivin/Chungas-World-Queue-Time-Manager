@@ -19,8 +19,8 @@
     {
       "id": "tmp-3",
       "name": "Nether Sky",
-      "x": 29.9,
-      "y": 37.4,
+      "x": 24.6,
+      "y": 38.8,
       "queue": 0,
       "status": "open"
     },
@@ -35,8 +35,8 @@
     {
       "id": "tmp-3",
       "name": "X End Time",
-      "x": 25.9,
-      "y": 69.7,
+      "x": 30,
+      "y": 35.8,
       "queue": 0,
       "status": "open"
     }
