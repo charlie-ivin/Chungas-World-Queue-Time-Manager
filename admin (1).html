@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Park Admin</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="park-header">
+  <h1 class="pixel-heading">PARK ADMIN</h1>
+  <div id="loginState" class="park-status-pill">Not logged in</div>
+</header>
+
+<div class="admin-shell">
+
+  <!-- Login -->
+  <div id="loginPanel" class="panel">
+    <h2>LOG IN</h2>
+    <p>Paste a GitHub personal access token scoped to <code id="repoLabel"></code>. It's kept in memory only for this browser tab — it's never saved anywhere, and reloading the page clears it.</p>
+    <div class="field-row">
+      <div class="field">
+        <label for="tokenInput">Personal access token</label>
+        <input id="tokenInput" type="password" placeholder="github_pat_..." style="width:320px" />
+      </div>
+      <button id="loginBtn">Log in</button>
+    </div>
+    <div id="loginMsg"></div>
+    <p style="font-size:12px;">
+      <a class="token-help" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">
+        Create a fine-grained token →
+      </a>
+      Scope it to this one repo only, with "Contents: Read and write" permission.
+    </p>
+  </div>
+
+  <!-- Main admin UI, hidden until logged in -->
+  <div id="adminMain" style="display:none;">
+
+    <div class="panel">
+      <h2>PLACE PINS</h2>
+      <p>Click anywhere on the map to add a new ride pin there. Drag an existing pin to move it.</p>
+      <div class="map-wrap" style="padding:0;">
+        <div id="mapCanvas" class="map-canvas"></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>RIDES</h2>
+      <div id="rideList"></div>
+      <div class="msg" id="ridesMsg" style="display:none;"></div>
+    </div>
+
+    <div class="panel">
+      <h2>SAVE</h2>
+      <p>Changes above are local until you save — this commits <code id="dataPathLabel"></code> to your repo.</p>
+      <button id="saveBtn">Save changes to GitHub</button>
+      <div id="saveMsg"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="config.js?v=2"></script>
+<script src="park-core.js?v=2"></script>
+<script src="admin.js?v=2"></script>
+</body>
+</html>
