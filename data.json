@@ -63,6 +63,14 @@
       "y": 26.4,
       "queue": 5,
       "status": "open"
+    },
+    {
+      "id": "tmp-1",
+      "name": "Minecraft Mandrill Mayhem",
+      "x": 29,
+      "y": 20.3,
+      "queue": 5,
+      "status": "open"
     }
   ],
   "hours": {
