@@ -2,7 +2,7 @@
   "rides": [
     {
       "id": "tmp-3",
-      "name": "New riTESTde",
+      "name": "Test",
       "x": 40,
       "y": 44.8,
       "queue": 10,
