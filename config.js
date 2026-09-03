@@ -8,13 +8,11 @@ window.PARK_CONFIG = {
   // Google Calendar
   // Calendar must be shared as "Make available to public" (Settings
   // → Access permissions) so the API can read it without login.
-  calendarId: "your-calendar-id@group.calendar.google.com",
-  googleApiKey: "YOUR_GOOGLE_API_KEY",
+  calendarId: "72758bd116cd1e17d385efc0726424bf904ec0347b78ffc5200b7068196d3afe@group.calendar.google.com",
+googleApiKey: "YOUR_GOOGLE_API_KEY",   // still needs your real key when you're ready
 
-  // GitHub repo that hosts this site + data.json
-  // (used by the admin page to save changes)
-  githubOwner: "your-username",
-  githubRepo: "your-repo-name",
+githubOwner: "charlie-ivin",
+githubRepo: "Chungas-World-Queue-Time-Manager",
   githubBranch: "main",
   dataPath: "data.json",
 
