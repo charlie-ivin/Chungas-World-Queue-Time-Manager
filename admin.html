@@ -7,14 +7,11 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="park-header">
   <h1 class="pixel-heading">PARK ADMIN</h1>
   <div id="loginState" class="park-status-pill">Not logged in</div>
 </header>
-
 <div class="admin-shell">
-
   <!-- Login -->
   <div id="loginPanel" class="panel">
     <h2>LOG IN</h2>
@@ -34,10 +31,8 @@
       Scope it to this one repo only, with "Contents: Read and write" permission.
     </p>
   </div>
-
   <!-- Main admin UI, hidden until logged in -->
   <div id="adminMain" style="display:none;">
-
     <div class="panel">
       <h2>OPENING HOURS</h2>
       <p>Set today's hours here. Once the current time passes closing time, the map automatically shows every ride as closed — unless "Extended hours" below is switched on.</p>
@@ -55,7 +50,6 @@
         </div>
       </div>
     </div>
-
     <div class="panel">
       <h2>PLACE PINS</h2>
       <p>Click anywhere on the map to add a new ride pin there. Drag an existing pin to move it.</p>
@@ -63,25 +57,21 @@
         <div id="mapCanvas" class="map-canvas"></div>
       </div>
     </div>
-
     <div class="panel">
       <h2>RIDES</h2>
       <div id="rideList"></div>
       <div class="msg" id="ridesMsg" style="display:none;"></div>
     </div>
-
     <div class="panel">
       <h2>SAVE</h2>
       <p>Changes above are local until you save — this commits <code id="dataPathLabel"></code> to your repo.</p>
       <button id="saveBtn">Save changes to GitHub</button>
       <div id="saveMsg"></div>
     </div>
-
   </div>
 </div>
-
-<script src="config.js?v=3"></script>
-<script src="park-core.js?v=3"></script>
-<script src="admin.js?v=3"></script>
+<script src="config.js?v=4"></script>
+<script src="park-core.js?v=4"></script>
+<script src="admin.js?v=4"></script>
 </body>
 </html>
