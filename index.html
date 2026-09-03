@@ -7,12 +7,10 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="park-header">
   <h1 class="pixel-heading">PARK MAP</h1>
   <div id="statusPill" class="park-status-pill">Loading…</div>
 </header>
-
 <div class="map-wrap">
   <div id="mapCanvas" class="map-canvas">
     <div id="placeholderNote" class="map-placeholder-note">
@@ -20,33 +18,27 @@
     </div>
   </div>
 </div>
-
 <div class="legend">
   <div class="legend-item"><span class="legend-swatch" style="background:var(--gold)"></span> Open</div>
   <div class="legend-item"><span class="legend-swatch" style="background:var(--amber)"></span> Engineering work</div>
   <div class="legend-item"><span class="legend-swatch" style="background:var(--stone)"></span> Closed all day</div>
   <div class="legend-item"><span class="legend-swatch" style="background:var(--red)"></span> Temporarily shut</div>
 </div>
-
-<script src="config.js?v=3"></script>
-<script src="park-core.js?v=3"></script>
+<script src="config.js?v=4"></script>
+<script src="park-core.js?v=4"></script>
 <script>
 async function render() {
   const canvas = document.getElementById("mapCanvas");
   const pill = document.getElementById("statusPill");
-
   if (ParkCore.CFG.mapImageUrl) {
     canvas.classList.add("has-image");
     canvas.style.backgroundImage = `url(${ParkCore.CFG.mapImageUrl})`;
     const note = document.getElementById("placeholderNote");
     if (note) note.remove();
   }
-
   canvas.querySelectorAll(".pin").forEach((p) => p.remove());
-
   const data = await ParkCore.loadData();
   const parkStatus = ParkCore.computeParkStatus(data.hours);
-
   pill.textContent = data.hours.extended
     ? "Open — Extended Hours"
     : parkStatus.isOpen
@@ -54,20 +46,16 @@ async function render() {
     : "Park Closed";
   pill.classList.toggle("closed", !parkStatus.isOpen);
   pill.classList.toggle("extended", !!data.hours.extended);
-
   (data.rides || []).forEach((ride) => {
     const pin = document.createElement("div");
     pin.className = "pin";
     pin.style.left = ride.x + "%";
     pin.style.top = ride.y + "%";
-
     const forcedClosed = !parkStatus.isOpen;
     const effectiveStatus = forcedClosed ? "park_closed" : ride.status;
-
     const marker = document.createElement("div");
     marker.className = "pin-marker status-" + effectiveStatus;
     pin.appendChild(marker);
-
     const label = document.createElement("div");
     label.className = "pin-label";
     let queueText;
@@ -76,11 +64,9 @@ async function render() {
     else queueText = ParkCore.STATUS_LABELS[effectiveStatus];
     label.innerHTML = `${ride.name}<br><span class="pin-queue">${queueText}</span>`;
     pin.appendChild(label);
-
     canvas.appendChild(pin);
   });
 }
-
 render();
 // Refresh every 60s so hours/queue changes show up without a manual reload.
 setInterval(render, 60000);
