@@ -95,6 +95,30 @@
       "y": 38.3,
       "queue": 0,
       "status": "closed"
+    },
+    {
+      "id": "tmp-1",
+      "name": "Chungas Speedway",
+      "x": 60.1,
+      "y": 20.1,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-2",
+      "name": "Bumper Boats",
+      "x": 38.9,
+      "y": 52.3,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-3",
+      "name": "Tower Drop",
+      "x": 40.7,
+      "y": 29.4,
+      "queue": 0,
+      "status": "open"
     }
   ],
   "hours": {
