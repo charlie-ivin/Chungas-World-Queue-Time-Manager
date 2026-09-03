@@ -1,12 +1,12 @@
 {
   "rides": [
     {
-      "id": "tmp-3",
-      "name": "Test",
-      "x": 24.2,
-      "y": 37.2,
-      "queue": 10,
-      "status": "engineering"
+      "id": "tmp-1",
+      "name": "Minecraft Hyperia",
+      "x": 8.3,
+      "y": 21.7,
+      "queue": 5,
+      "status": "open"
     }
   ],
   "hours": {
