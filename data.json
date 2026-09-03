@@ -1,22 +1,6 @@
 {
   "rides": [
     {
-      "id": "tmp-2",
-      "name": "Old Town Road",
-      "x": 59,
-      "y": 61.2,
-      "queue": 0,
-      "status": "open"
-    },
-    {
-      "id": "tmp-2",
-      "name": "Tower Drop",
-      "x": 40.5,
-      "y": 34,
-      "queue": 0,
-      "status": "open"
-    },
-    {
       "id": "tmp-4",
       "name": "Nether Sky",
       "x": 24.5,
@@ -49,36 +33,68 @@
       "status": "closed"
     },
     {
-      "id": "tmp-2",
-      "name": "Bumper Boats",
-      "x": 39.9,
-      "y": 55,
-      "queue": 0,
-      "status": "open"
-    },
-    {
-      "id": "tmp-1",
-      "name": "Minecraft Mandrill Mayhem",
-      "x": 28.7,
-      "y": 18.7,
-      "queue": 5,
-      "status": "open"
-    },
-    {
-      "id": "tmp-2",
-      "name": "Chungas Speedway",
-      "x": 60,
-      "y": 20,
-      "queue": 10,
-      "status": "open"
-    },
-    {
       "id": "tmp-4",
       "name": "Car Park",
       "x": 81.4,
       "y": 86.6,
       "queue": 0,
       "status": "open"
+    },
+    {
+      "id": "tmp-4",
+      "name": "Jumanji Roll",
+      "x": 78.5,
+      "y": 72.1,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-5",
+      "name": "Minecraft Mandrill Mayhem",
+      "x": 29.4,
+      "y": 15.5,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-6",
+      "name": "Money Times",
+      "x": 15.5,
+      "y": 40.9,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-7",
+      "name": "Old Town Road",
+      "x": 59,
+      "y": 57.7,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-8",
+      "name": "The Zoo",
+      "x": 89.3,
+      "y": 54.5,
+      "queue": 0,
+      "status": "open"
+    },
+    {
+      "id": "tmp-9",
+      "name": "End Den",
+      "x": 69.4,
+      "y": 64.9,
+      "queue": 0,
+      "status": "closed"
+    },
+    {
+      "id": "tmp-10",
+      "name": "X End Time",
+      "x": 30.1,
+      "y": 38.3,
+      "queue": 0,
+      "status": "closed"
     }
   ],
   "hours": {
