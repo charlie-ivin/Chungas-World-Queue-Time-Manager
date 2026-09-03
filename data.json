@@ -21,7 +21,7 @@
       "name": "Minecraft Hyperia",
       "x": 13.2,
       "y": 30.3,
-      "queue": 5,
+      "queue": 10,
       "status": "open"
     },
     {
@@ -53,7 +53,7 @@
       "name": "Minecraft Mandrill Mayhem",
       "x": 29.4,
       "y": 15.5,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -69,7 +69,7 @@
       "name": "Old Town Road",
       "x": 59,
       "y": 57.7,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -101,7 +101,7 @@
       "name": "Chungas Speedway",
       "x": 60.1,
       "y": 20.1,
-      "queue": 0,
+      "queue": 10,
       "status": "open"
     },
     {
@@ -109,7 +109,7 @@
       "name": "Bumper Boats",
       "x": 38.9,
       "y": 52.3,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -117,13 +117,13 @@
       "name": "Tower Drop",
       "x": 40.7,
       "y": 29.4,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     }
   ],
   "hours": {
     "open": "10:00",
-    "close": "19:00",
+    "close": "18:00",
     "extended": false
   }
 }
