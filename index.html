@@ -24,8 +24,8 @@
   <div class="legend-item"><span class="legend-swatch" style="background:var(--stone)"></span> Closed all day</div>
   <div class="legend-item"><span class="legend-swatch" style="background:var(--red)"></span> Temporarily shut</div>
 </div>
-<script src="config.js?v=4"></script>
-<script src="park-core.js?v=4"></script>
+<script src="config.js?v=5"></script>
+<script src="park-core.js?v=5"></script>
 <script>
 async function render() {
   const canvas = document.getElementById("mapCanvas");
@@ -33,6 +33,7 @@ async function render() {
   if (ParkCore.CFG.mapImageUrl) {
     canvas.classList.add("has-image");
     canvas.style.backgroundImage = `url(${ParkCore.CFG.mapImageUrl})`;
+    await ParkCore.fitCanvasToImage(canvas, ParkCore.CFG.mapImageUrl);
     const note = document.getElementById("placeholderNote");
     if (note) note.remove();
   }
