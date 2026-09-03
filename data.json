@@ -8,5 +8,10 @@
       "queue": 10,
       "status": "engineering"
     }
-  ]
+  ],
+  "hours": {
+    "open": "09:00",
+    "close": "20:00",
+    "extended": true
+  }
 }
