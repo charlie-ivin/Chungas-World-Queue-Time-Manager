@@ -57,19 +57,11 @@
       "status": "closed"
     },
     {
-      "id": "tmp-1",
-      "name": "Chungas Speedway",
-      "x": 60.1,
-      "y": 26.4,
-      "queue": 5,
-      "status": "open"
-    },
-    {
-      "id": "tmp-1",
-      "name": "Minecraft Mandrill Mayhem",
-      "x": 29,
-      "y": 20.3,
-      "queue": 5,
+      "id": "tmp-2",
+      "name": "Bumper Boats",
+      "x": 39.9,
+      "y": 55,
+      "queue": 0,
       "status": "open"
     }
   ],
