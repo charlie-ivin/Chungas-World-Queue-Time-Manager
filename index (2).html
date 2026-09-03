@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Park Map</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="park-header">
+  <h1 class="pixel-heading">PARK MAP</h1>
+  <div id="statusPill" class="park-status-pill">Loading…</div>
+</header>
+
+<div class="map-wrap">
+  <div id="mapCanvas" class="map-canvas">
+    <div id="placeholderNote" class="map-placeholder-note">
+      Placeholder map — add a real image via config.js
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-swatch" style="background:var(--gold)"></span> Open</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:var(--amber)"></span> Engineering work</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:var(--stone)"></span> Closed all day</div>
+  <div class="legend-item"><span class="legend-swatch" style="background:var(--red)"></span> Temporarily shut</div>
+</div>
+
+<script src="config.js?v=2"></script>
+<script src="park-core.js?v=2"></script>
+<script>
+async function render() {
+  const canvas = document.getElementById("mapCanvas");
+  const pill = document.getElementById("statusPill");
+
+  if (ParkCore.CFG.mapImageUrl) {
+    canvas.classList.add("has-image");
+    canvas.style.backgroundImage = `url(${ParkCore.CFG.mapImageUrl})`;
+    document.getElementById("placeholderNote").remove();
+  }
+
+  const [data, cal] = await Promise.all([
+    ParkCore.loadData(),
+    ParkCore.fetchTodayEventTitle(),
+  ]);
+
+  const parsed = ParkCore.parseEventTitle(cal.title);
+  const parkStatus = ParkCore.computeParkStatus(parsed);
+
+  // Status pill
+  pill.textContent = cal.error
+    ? "Hours unavailable"
+    : parsed.extended
+    ? "Open — Extended Hours"
+    : parkStatus.isOpen
+    ? `Open · ${ParkCore.formatMinutes(parsed.open)}–${ParkCore.formatMinutes(parsed.close)}`
+    : "Park Closed";
+  pill.classList.toggle("closed", !cal.error && !parkStatus.isOpen);
+  pill.classList.toggle("extended", !cal.error && parsed.extended);
+
+  // Pins
+  (data.rides || []).forEach((ride) => {
+    const pin = document.createElement("div");
+    pin.className = "pin";
+    pin.style.left = ride.x + "%";
+    pin.style.top = ride.y + "%";
+
+    const forcedClosed = !cal.error && !parkStatus.isOpen;
+    const effectiveStatus = forcedClosed ? "park_closed" : ride.status;
+
+    const marker = document.createElement("div");
+    marker.className = "pin-marker status-" + effectiveStatus;
+    pin.appendChild(marker);
+
+    const label = document.createElement("div");
+    label.className = "pin-label";
+    let queueText;
+    if (effectiveStatus === "park_closed") queueText = "Park closed";
+    else if (effectiveStatus === "open") queueText = `${ride.queue} min queue`;
+    else queueText = ParkCore.STATUS_LABELS[effectiveStatus];
+    label.innerHTML = `${ride.name}<br><span class="pin-queue">${queueText}</span>`;
+    pin.appendChild(label);
+
+    canvas.appendChild(pin);
+  });
+}
+
+render();
+// Refresh every 60s so hours/queue changes show up without a manual reload.
+setInterval(render, 60000);
+</script>
+</body>
+</html>
