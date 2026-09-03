@@ -1,4 +1,12 @@
 {
-  "hours": { "open": "09:00", "close": "20:00", "extended": false },
-  "rides": []
+  "rides": [
+    {
+      "id": "tmp-3",
+      "name": "New riTESTde",
+      "x": 40,
+      "y": 44.8,
+      "queue": 10,
+      "status": "engineering"
+    }
+  ]
 }
