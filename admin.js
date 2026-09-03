@@ -220,8 +220,8 @@
     saveMsg.innerHTML = "";
     try {
       const getRes = await fetch(
-        `https://api.github.com/repos/${CFG.githubOwner}/${CFG.githubRepo}/contents/${CFG.dataPath}?ref=${CFG.githubBranch}`,
-        { headers: { Authorization: `Bearer ${token}` } }
+        `https://api.github.com/repos/${CFG.githubOwner}/${CFG.githubRepo}/contents/${CFG.dataPath}?ref=${CFG.githubBranch}&_=${Date.now()}`,
+        { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
       );
       if (!getRes.ok) {
         showMsg(saveMsg, `Couldn't read current file (status ${getRes.status}).`, false);
@@ -248,7 +248,11 @@
       );
       if (!putRes.ok) {
         const errJson = await putRes.json().catch(() => ({}));
-        showMsg(saveMsg, `Save failed (status ${putRes.status}): ${errJson.message || "unknown error"}`, false);
+        const hint =
+          putRes.status === 409
+            ? " This usually means the file changed elsewhere since you loaded this page — reload admin.html (your unsaved edits will be lost, so note them down first) and try again."
+            : "";
+        showMsg(saveMsg, `Save failed (status ${putRes.status}): ${errJson.message || "unknown error"}.${hint}`, false);
         return;
       }
       showMsg(saveMsg, "Saved. The public map will pick this up on its next refresh.", true);
