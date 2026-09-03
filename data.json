@@ -11,8 +11,8 @@
     {
       "id": "tmp-2",
       "name": "Tower Drop",
-      "x": 12.9,
-      "y": 84.5,
+      "x": 40.5,
+      "y": 34,
       "queue": 0,
       "status": "open"
     },
@@ -57,11 +57,11 @@
       "status": "closed"
     },
     {
-      "id": "tmp-12",
-      "name": "Tower Drop",
-      "x": 40.5,
-      "y": 34,
-      "queue": 0,
+      "id": "tmp-1",
+      "name": "Chungas Speedway",
+      "x": 60.1,
+      "y": 26.4,
+      "queue": 5,
       "status": "open"
     }
   ],
