@@ -65,6 +65,23 @@ const ParkCore = (() => {
     temp_shut: "Temporarily Shut",
   };
 
+  // ---- Match the map canvas aspect ratio to the real image ----------
+  function fitCanvasToImage(canvasEl, imageUrl) {
+    return new Promise((resolve) => {
+      if (!imageUrl) {
+        resolve();
+        return;
+      }
+      const img = new Image();
+      img.onload = () => {
+        canvasEl.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+        resolve();
+      };
+      img.onerror = () => resolve(); // fall back to default ratio if it fails to load
+      img.src = imageUrl;
+    });
+  }
+
   return {
     CFG,
     loadData,
@@ -72,5 +89,6 @@ const ParkCore = (() => {
     computeParkStatus,
     formatMinutes,
     STATUS_LABELS,
+    fitCanvasToImage,
   };
 })();
