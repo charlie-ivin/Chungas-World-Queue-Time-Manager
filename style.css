@@ -239,3 +239,62 @@ button.danger { background: var(--red); }
 .msg.ok { background: #e3f0d8; border: 2px solid var(--grass-dark); color: #2f4c17; }
 
 a.token-help { color: var(--ink); }
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .park-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 12px;
+  }
+
+  .park-header h1 {
+    font-size: 11px;
+  }
+
+  .park-status-pill {
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+
+  .map-wrap {
+    padding: 10px;
+  }
+
+  .pin-marker {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+
+  .pin-label {
+    font-size: 10px;
+    padding: 2px 5px;
+    max-width: 100px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .pin-queue {
+    font-size: 9px;
+  }
+
+  .legend {
+    padding: 0 10px 12px;
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .admin-shell {
+    padding: 10px;
+  }
+
+  .field-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input, select, button {
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+  }
+}
