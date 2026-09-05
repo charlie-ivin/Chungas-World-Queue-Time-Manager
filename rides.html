@@ -19,8 +19,8 @@
   </div>
 </div>
 
-<script src="config.js?v=6"></script>
-<script src="park-core.js?v=6"></script>
+<script src="config.js?v=8"></script>
+<script src="park-core.js?v=8"></script>
 <script>
 async function render() {
   const pill = document.getElementById("statusPill");
@@ -48,7 +48,7 @@ async function render() {
   }
 
   rides.forEach((ride) => {
-    const forcedClosed = !parkStatus.isOpen;
+    const forcedClosed = !parkStatus.isOpen && ride.status === "open";
     const effectiveStatus = forcedClosed ? "park_closed" : ride.status;
 
     let statusText;
