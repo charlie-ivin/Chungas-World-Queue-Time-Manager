@@ -17,8 +17,8 @@
   </div>
 </div>
 
-<script src="config.js?v=10"></script>
-<script src="park-core.js?v=10"></script>
+<script src="config.js?v=11"></script>
+<script src="park-core.js?v=11"></script>
 <script>
 async function render() {
   const canvas = document.getElementById("mapCanvas");
@@ -33,10 +33,6 @@ async function render() {
   }
 
   canvas.querySelectorAll(".pin").forEach((p) => p.remove());
-
-  canvas.onclick = () => {
-    canvas.querySelectorAll(".pin.active").forEach((p) => p.classList.remove("active"));
-  };
 
   const data = await ParkCore.loadData();
   const parkStatus = ParkCore.computeParkStatus(data.hours);
@@ -72,14 +68,6 @@ async function render() {
     else queueText = ParkCore.STATUS_LABELS[effectiveStatus];
     label.innerHTML = `${ride.name}<br><span class="pin-queue">${queueText}</span>`;
     pin.appendChild(label);
-
-    // Tap-to-toggle for touch devices (no hover on mobile).
-    pin.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const wasActive = pin.classList.contains("active");
-      canvas.querySelectorAll(".pin.active").forEach((p) => p.classList.remove("active"));
-      if (!wasActive) pin.classList.add("active");
-    });
 
     canvas.appendChild(pin);
   });
