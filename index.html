@@ -24,8 +24,8 @@
   <div class="legend-item"><span class="legend-swatch" style="background:var(--stone)"></span> Closed all day</div>
   <div class="legend-item"><span class="legend-swatch" style="background:var(--red)"></span> Temporarily shut</div>
 </div>
-<script src="config.js?v=5"></script>
-<script src="park-core.js?v=5"></script>
+<script src="config.js?v=6"></script>
+<script src="park-core.js?v=6"></script>
 <script>
 async function render() {
   const canvas = document.getElementById("mapCanvas");
@@ -44,9 +44,11 @@ async function render() {
     ? "Open — Extended Hours"
     : parkStatus.isOpen
     ? `Open · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}–${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.close))}`
+    : parkStatus.isOpeningSoon
+    ? `Opening Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}`
     : "Park Closed";
-  pill.classList.toggle("closed", !parkStatus.isOpen);
-  pill.classList.toggle("extended", !!data.hours.extended);
+  pill.classList.toggle("closed", !parkStatus.isOpen && !parkStatus.isOpeningSoon);
+  pill.classList.toggle("extended", !!data.hours.extended || parkStatus.isOpeningSoon);
   (data.rides || []).forEach((ride) => {
     const pin = document.createElement("div");
     pin.className = "pin";
@@ -54,13 +56,15 @@ async function render() {
     pin.style.top = ride.y + "%";
     const forcedClosed = !parkStatus.isOpen;
     const effectiveStatus = forcedClosed ? "park_closed" : ride.status;
+
     const marker = document.createElement("div");
     marker.className = "pin-marker status-" + effectiveStatus;
     pin.appendChild(marker);
+
     const label = document.createElement("div");
     label.className = "pin-label";
     let queueText;
-    if (effectiveStatus === "park_closed") queueText = "Park closed";
+    if (effectiveStatus === "park_closed") queueText = parkStatus.isOpeningSoon ? "Opening soon" : "Park closed";
     else if (effectiveStatus === "open") queueText = `${ride.queue} min queue`;
     else queueText = ParkCore.STATUS_LABELS[effectiveStatus];
     label.innerHTML = `${ride.name}<br><span class="pin-queue">${queueText}</span>`;
