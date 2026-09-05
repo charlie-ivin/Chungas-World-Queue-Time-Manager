@@ -39,10 +39,10 @@ const ParkCore = (() => {
     const close = timeStringToMinutes(hours.close);
 
     if (hours.extended) {
-      return { isOpen: true, reason: "Extended hours in effect" };
+      return { isOpen: true, isOpeningSoon: false, reason: "Extended hours in effect" };
     }
     if (open === null || close === null) {
-      return { isOpen: true, reason: "Hours not set — showing rides as configured" };
+      return { isOpen: true, isOpeningSoon: false, reason: "Hours not set — showing rides as configured" };
     }
 
     const now = new Date();
@@ -52,9 +52,18 @@ const ParkCore = (() => {
         ? nowMinutes >= open && nowMinutes < close
         : nowMinutes >= open || nowMinutes < close; // overnight wrap
 
+    // "Opening soon": it's after midnight but before today's opening time
+    // (only meaningful when the schedule doesn't wrap overnight).
+    const isOpeningSoon = !isOpen && close > open && nowMinutes < open;
+
     return {
       isOpen,
-      reason: isOpen ? "Within opening hours" : "Past closing time — all rides shown closed",
+      isOpeningSoon,
+      reason: isOpen
+        ? "Within opening hours"
+        : isOpeningSoon
+        ? "Before today's opening time"
+        : "Past closing time — all rides shown closed",
     };
   }
 
