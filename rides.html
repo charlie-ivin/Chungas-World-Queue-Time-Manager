@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ride Queue Times</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="park-header">
+  <h1 class="pixel-heading">QUEUE TIMES</h1>
+  <div id="statusPill" class="park-status-pill">Loading…</div>
+</header>
+
+<div class="admin-shell">
+  <div class="panel">
+    <div id="ridesTable"></div>
+  </div>
+</div>
+
+<script src="config.js?v=6"></script>
+<script src="park-core.js?v=6"></script>
+<script>
+async function render() {
+  const pill = document.getElementById("statusPill");
+  const table = document.getElementById("ridesTable");
+
+  const data = await ParkCore.loadData();
+  const parkStatus = ParkCore.computeParkStatus(data.hours);
+
+  pill.textContent = data.hours.extended
+    ? "Open — Extended Hours"
+    : parkStatus.isOpen
+    ? `Open · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}–${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.close))}`
+    : parkStatus.isOpeningSoon
+    ? `Opening Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}`
+    : "Park Closed";
+  pill.classList.toggle("closed", !parkStatus.isOpen && !parkStatus.isOpeningSoon);
+  pill.classList.toggle("extended", !!data.hours.extended || parkStatus.isOpeningSoon);
+
+  table.innerHTML = "";
+
+  const rides = data.rides || [];
+  if (rides.length === 0) {
+    table.innerHTML = "<p>No rides added yet.</p>";
+    return;
+  }
+
+  rides.forEach((ride) => {
+    const forcedClosed = !parkStatus.isOpen;
+    const effectiveStatus = forcedClosed ? "park_closed" : ride.status;
+
+    let statusText;
+    if (effectiveStatus === "park_closed") {
+      statusText = parkStatus.isOpeningSoon ? "Opening soon" : "Park closed";
+    } else if (effectiveStatus === "open") {
+      statusText = `${ride.queue} min`;
+    } else {
+      statusText = ParkCore.STATUS_LABELS[effectiveStatus];
+    }
+
+    const row = document.createElement("div");
+    row.className = "ride-row";
+    row.innerHTML = `
+      <div class="pin-marker status-${effectiveStatus}" style="width:16px;height:16px;flex-shrink:0;"></div>
+      <div style="flex:1; font-weight:700;">${ride.name}</div>
+      <div>${statusText}</div>
+    `;
+    table.appendChild(row);
+  });
+}
+
+render();
+setInterval(render, 60000);
+</script>
+</body>
+</html>
