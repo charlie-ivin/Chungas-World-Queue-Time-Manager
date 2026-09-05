@@ -17,8 +17,8 @@
   </div>
 </div>
 
-<script src="config.js?v=7"></script>
-<script src="park-core.js?v=7"></script>
+<script src="config.js?v=8"></script>
+<script src="park-core.js?v=8"></script>
 <script>
 async function render() {
   const canvas = document.getElementById("mapCanvas");
@@ -53,7 +53,7 @@ async function render() {
     pin.style.left = ride.x + "%";
     pin.style.top = ride.y + "%";
 
-    const forcedClosed = !parkStatus.isOpen;
+    const forcedClosed = !parkStatus.isOpen && ride.status === "open";
     const effectiveStatus = forcedClosed ? "park_closed" : ride.status;
 
     const marker = document.createElement("div");
