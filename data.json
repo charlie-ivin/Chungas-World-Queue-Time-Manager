@@ -33,7 +33,7 @@
       "status": "closed"
     },
     {
-      "id": "tmp-4",
+      "id": "ride-1",
       "name": "Car Park",
       "x": 81.4,
       "y": 86.6,
@@ -41,7 +41,7 @@
       "status": "open"
     },
     {
-      "id": "tmp-4",
+      "id": "ride-2",
       "name": "Jumanji Roll",
       "x": 78.5,
       "y": 72.1,
@@ -57,7 +57,7 @@
       "status": "open"
     },
     {
-      "id": "tmp-6",
+      "id": "ride-3",
       "name": "Money Times",
       "x": 15.5,
       "y": 40.9,
@@ -73,7 +73,7 @@
       "status": "open"
     },
     {
-      "id": "tmp-8",
+      "id": "ride-4",
       "name": "The Zoo",
       "x": 89.3,
       "y": 54.5,
@@ -89,7 +89,7 @@
       "status": "closed"
     },
     {
-      "id": "tmp-10",
+      "id": "ride-5",
       "name": "X End Time",
       "x": 30.1,
       "y": 38.3,
@@ -119,6 +119,14 @@
       "y": 29.4,
       "queue": 5,
       "status": "open"
+    },
+    {
+      "id": "ride-6",
+      "name": "Event Hall",
+      "x": 82,
+      "y": 53.9,
+      "queue": 0,
+      "status": "closed"
     }
   ],
   "hours": {
