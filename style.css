@@ -241,9 +241,10 @@ button.danger { background: var(--red); }
 a.token-help { color: var(--ink); }
 
 /* ── Map-only embed layout (no header/legend) ────────────── */
-body.map-only {
+html.map-only-html, body.map-only {
   margin: 0;
   background: var(--ink);
+  height: auto;
   min-height: 0;
 }
 
@@ -252,7 +253,7 @@ body.map-only {
 }
 
 .map-wrap-tight .map-canvas {
-  max-width: 1000px;
+  max-width: 1400px;
 }
 
 .map-status-badge {
