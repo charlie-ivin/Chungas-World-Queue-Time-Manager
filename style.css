@@ -252,7 +252,7 @@ body.map-only {
 }
 
 .map-wrap-tight .map-canvas {
-  max-width: none;
+  max-width: 1000px;
 }
 
 .map-status-badge {
