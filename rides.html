@@ -32,7 +32,7 @@ async function render() {
   pill.textContent = data.hours.extended
     ? "Open — Extended Hours"
     : parkStatus.isOpen
-    ? `Open · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}–${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.close))}`
+    ? `Open · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))} – ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.close))}`
     : parkStatus.isOpeningSoon
     ? `Opening Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}`
     : "Park Closed";
