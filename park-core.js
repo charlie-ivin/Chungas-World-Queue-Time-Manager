@@ -12,6 +12,12 @@ const ParkCore = (() => {
     if (!data.hours) {
       data.hours = { open: "09:00", close: "20:00", extended: false };
     }
+    if (!data.hours.privateEvent) {
+      data.hours.privateEvent = { enabled: false, useParkHours: true, open: "", close: "" };
+    }
+    if (data.hours.privateEvent.useParkHours === undefined) {
+      data.hours.privateEvent.useParkHours = true;
+    }
     return data;
   }
 
@@ -35,32 +41,83 @@ const ParkCore = (() => {
 
   // ---- Decide park-level status right now ---------------------------
   function computeParkStatus(hours) {
-    const open = timeStringToMinutes(hours.open);
-    const close = timeStringToMinutes(hours.close);
-
-    if (hours.extended) {
-      return { isOpen: true, isOpeningSoon: false, reason: "Extended hours in effect" };
-    }
-    if (open === null || close === null) {
-      return { isOpen: true, isOpeningSoon: false, reason: "Hours not set — showing rides as configured" };
-    }
-
     const now = new Date();
     const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+    // Private event override — takes priority over everything else
+    // when it's enabled and we're currently within its window.
+    const pe = hours.privateEvent;
+    if (pe && pe.enabled) {
+      const peOpenStr = pe.useParkHours ? hours.open : pe.open;
+      const peCloseStr = pe.useParkHours ? hours.close : pe.close;
+      const peOpen = timeStringToMinutes(peOpenStr);
+      const peClose = timeStringToMinutes(peCloseStr);
+      if (peOpen !== null && peClose !== null) {
+        const inWindow =
+          peClose > peOpen
+            ? nowMinutes >= peOpen && nowMinutes < peClose
+            : nowMinutes >= peOpen || nowMinutes < peClose;
+        if (inWindow) {
+          return {
+            isOpen: true,
+            isOpeningSoon: false,
+            isClosingSoon: false,
+            isPrivateEvent: true,
+            reason: "Private event in progress",
+          };
+        }
+      }
+    }
+
+    if (hours.extended) {
+      return {
+        isOpen: true,
+        isOpeningSoon: false,
+        isClosingSoon: false,
+        isPrivateEvent: false,
+        reason: "Extended hours in effect",
+      };
+    }
+
+    const open = timeStringToMinutes(hours.open);
+    const close = timeStringToMinutes(hours.close);
+    if (open === null || close === null) {
+      return {
+        isOpen: true,
+        isOpeningSoon: false,
+        isClosingSoon: false,
+        isPrivateEvent: false,
+        reason: "Hours not set — showing rides as configured",
+      };
+    }
+
     const isOpen =
       close > open
         ? nowMinutes >= open && nowMinutes < close
         : nowMinutes >= open || nowMinutes < close; // overnight wrap
 
-    // "Opening soon": it's after midnight but before today's opening time
-    // (only meaningful when the schedule doesn't wrap overnight).
     const isOpeningSoon = !isOpen && close > open && nowMinutes < open;
+
+    let isClosingSoon = false;
+    if (isOpen) {
+      const remaining =
+        close > open
+          ? close - nowMinutes
+          : nowMinutes < close
+          ? close - nowMinutes
+          : close + 1440 - nowMinutes;
+      isClosingSoon = remaining > 0 && remaining <= 30;
+    }
 
     return {
       isOpen,
       isOpeningSoon,
+      isClosingSoon,
+      isPrivateEvent: false,
       reason: isOpen
-        ? "Within opening hours"
+        ? isClosingSoon
+          ? "Closing within 30 minutes"
+          : "Within opening hours"
         : isOpeningSoon
         ? "Before today's opening time"
         : "Past closing time — all rides shown closed",
@@ -86,7 +143,7 @@ const ParkCore = (() => {
         canvasEl.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
         resolve();
       };
-      img.onerror = () => resolve(); // fall back to default ratio if it fails to load
+      img.onerror = () => resolve();
       img.src = imageUrl;
     });
   }
