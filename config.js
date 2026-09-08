@@ -12,7 +12,7 @@ window.PARK_CONFIG = {
 
   // Map background. Leave as null to use the placeholder grid
   // until you have a real screenshot/render of the park.
-  mapImageUrl: null,
+  mapImageUrl: "park-map.png",
 
   // Ride queue-time dropdown range (multiples of 5)
   queueMin: 0,
