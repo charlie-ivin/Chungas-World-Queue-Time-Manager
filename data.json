@@ -52,7 +52,7 @@
       "queue": 0,
       "status": "open",
       "customHours": {
-        "enabled": true,
+        "enabled": false,
         "open": "09:00",
         "close": "18:00"
       }
