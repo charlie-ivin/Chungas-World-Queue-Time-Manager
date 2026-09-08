@@ -90,7 +90,12 @@
       "x": 89.3,
       "y": 54.5,
       "queue": 0,
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "10:00",
+        "close": "18:00"
+      }
     },
     {
       "id": "tmp-9",
