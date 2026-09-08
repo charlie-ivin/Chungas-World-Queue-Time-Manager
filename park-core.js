@@ -69,6 +69,16 @@ const ParkCore = (() => {
       }
     }
 
+    if (hours.closedAllDay) {
+      return {
+        isOpen: false,
+        isOpeningSoon: false,
+        isClosingSoon: false,
+        isPrivateEvent: false,
+        reason: "Park closed all day",
+      };
+    }
+
     if (hours.extended) {
       return {
         isOpen: true,
