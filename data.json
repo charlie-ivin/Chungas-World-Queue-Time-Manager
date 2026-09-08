@@ -129,15 +129,10 @@
       "status": "closed"
     }
   ],
-  "hours": {
-    "open": "10:00",
-    "close": "19:00",
-    "extended": false,
-    "privateEvent": {
-      "enabled": false,
-      "useParkHours": true,
-      "open": "",
-      "close": ""
+  {
+  "hours": { "open": "09:00", "close": "20:00", "extended": false },
+  "rides": []
+}
     }
   }
 }
