@@ -1,10 +1,10 @@
 (() => {
   const CFG = window.PARK_CONFIG;
-  let token = null; // in-memory only, never persisted
+  let token = null;
   let data = { rides: [] };
   let nextTempId = 1;
 
-  // These elements may not exist anymore (we removed the help text)
+  // Safe — these elements may not exist
   const repoLabel = document.getElementById("repoLabel");
   if (repoLabel) repoLabel.textContent = `${CFG.githubOwner}/${CFG.githubRepo}`;
 
@@ -19,7 +19,6 @@
     el.innerHTML = `<div class="msg ${ok ? "ok" : "error"}">${text}</div>`;
   }
 
-  // ── Login ──────────────────────────────────────────────
   document.getElementById("loginBtn").addEventListener("click", async () => {
     const val = document.getElementById("tokenInput").value.trim();
     if (!val) return;
@@ -28,21 +27,16 @@
       const url = `https://api.github.com/repos/${CFG.githubOwner}/${CFG.githubRepo}`;
       const res = await fetch(url, { headers: { Authorization: `Bearer ${val}` } });
       const body = await res.json().catch(() => ({}));
-      console.log("Admin login check:", url, res.status, body);
 
       if (!res.ok) {
-        showMsg(
-          loginMsg,
-          `Request to ${url} failed (status ${res.status}): ${body.message || "no message from GitHub"}. Open the browser console (F12) for full details.`,
-          false
-        );
+        showMsg(loginMsg, `Login failed (status ${res.status}): ${body.message || "Unknown error"}`, false);
         return;
       }
-      const repoInfo = body;
-      if (!repoInfo.permissions || !repoInfo.permissions.push) {
-        showMsg(loginMsg, "Token works and repo was found, but it doesn't have write (push) access — check the token's scope.", false);
+      if (!body.permissions || !body.permissions.push) {
+        showMsg(loginMsg, "Token works but does not have write access to the repo.", false);
         return;
       }
+
       token = val;
       document.getElementById("tokenInput").value = "";
       document.getElementById("loginPanel").style.display = "none";
@@ -55,7 +49,6 @@
     }
   });
 
-  // ── Load data.json + render map & list ─────────────────
   async function loadAndRender() {
     data = await ParkCore.loadData();
     renderHours();
@@ -67,20 +60,18 @@
     const openInput = document.getElementById("openTime");
     const closeInput = document.getElementById("closeTime");
     const extendedInput = document.getElementById("extendedToggle");
+    const closedAllDayInput = document.getElementById("closedAllDayToggle");
 
     openInput.value = data.hours.open || "09:00";
     closeInput.value = data.hours.close || "20:00";
     extendedInput.checked = !!data.hours.extended;
+    closedAllDayInput.checked = !!data.hours.closedAllDay;
 
     openInput.addEventListener("change", (e) => { data.hours.open = e.target.value; });
     closeInput.addEventListener("change", (e) => { data.hours.close = e.target.value; });
     extendedInput.addEventListener("change", (e) => { data.hours.extended = e.target.checked; });
-
-    const closedAllDayInput = document.getElementById("closedAllDayToggle");
-    closedAllDayInput.checked = !!data.hours.closedAllDay;
     closedAllDayInput.addEventListener("change", (e) => { data.hours.closedAllDay = e.target.checked; });
 
-    // ── Private event ──
     if (!data.hours.privateEvent) {
       data.hours.privateEvent = { enabled: false, useParkHours: true, open: "", close: "" };
     }
@@ -121,7 +112,7 @@
     }
 
     canvas.addEventListener("click", (e) => {
-      if (e.target !== canvas) return; // ignore clicks on existing pins
+      if (e.target !== canvas) return;
       const rect = canvas.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -190,7 +181,6 @@
     renderList();
   }
 
-  // ── Ride list editor ────────────────────────────────────
   function queueOptions(selected) {
     const opts = [];
     for (let v = CFG.queueMin; v <= CFG.queueMax; v += CFG.queueStep) {
@@ -279,7 +269,6 @@
     });
   }
 
-  // ── Save (commit) to GitHub ─────────────────────────────
   document.getElementById("saveBtn").addEventListener("click", async () => {
     saveMsg.innerHTML = "";
     try {
@@ -312,14 +301,10 @@
       );
       if (!putRes.ok) {
         const errJson = await putRes.json().catch(() => ({}));
-        const hint =
-          putRes.status === 409
-            ? " This usually means the file changed elsewhere since you loaded this page — reload admin.html (your unsaved edits will be lost, so note them down first) and try again."
-            : "";
-        showMsg(saveMsg, `Save failed (status ${putRes.status}): ${errJson.message || "unknown error"}.${hint}`, false);
+        showMsg(saveMsg, `Save failed (status ${putRes.status}): ${errJson.message || "unknown error"}`, false);
         return;
       }
-      showMsg(saveMsg, "Saved. The public map will pick this up on its next refresh.", true);
+      showMsg(saveMsg, "Saved successfully!", true);
     } catch (e) {
       showMsg(saveMsg, "Network error while saving.", false);
     }
