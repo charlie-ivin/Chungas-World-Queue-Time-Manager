@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ride Queue Times</title>
-<link rel="stylesheet" href="style.css?v=13" />
+<link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
 
@@ -19,8 +19,8 @@
   </div>
 </div>
 
-<script src="config.js?v=8"></script>
-<script src="park-core.js?v=8"></script>
+<script src="config.js?v=14"></script>
+<script src="park-core.js?v=14"></script>
 <script>
 async function render() {
   const pill = document.getElementById("statusPill");
@@ -29,15 +29,21 @@ async function render() {
   const data = await ParkCore.loadData();
   const parkStatus = ParkCore.computeParkStatus(data.hours);
 
-  pill.textContent = data.hours.extended
+  pill.textContent = parkStatus.isPrivateEvent
+    ? "Private Event"
+    : data.hours.extended
     ? "Open — Extended Hours"
+    : parkStatus.isClosingSoon
+    ? `Closing Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.close))}`
     : parkStatus.isOpen
     ? `Open · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))} – ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.close))}`
     : parkStatus.isOpeningSoon
     ? `Opening Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}`
     : "Park Closed";
   pill.classList.toggle("closed", !parkStatus.isOpen && !parkStatus.isOpeningSoon);
-  pill.classList.toggle("extended", !!data.hours.extended || parkStatus.isOpeningSoon);
+  pill.classList.toggle("extended", (!!data.hours.extended || parkStatus.isOpeningSoon) && !parkStatus.isPrivateEvent && !parkStatus.isClosingSoon);
+  pill.classList.toggle("closing-soon", parkStatus.isClosingSoon);
+  pill.classList.toggle("private-event", parkStatus.isPrivateEvent);
 
   table.innerHTML = "";
 
