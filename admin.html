@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Park Admin</title>
-<link rel="stylesheet" href="style.css?v=13" />
+<link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
 <header class="park-header">
@@ -50,6 +50,30 @@
         </div>
       </div>
     </div>
+
+    <div class="panel">
+      <h2>PRIVATE EVENT</h2>
+      <p>Use this for a private hire or exclusive-access window. While active, the map shows "Private Event" instead of the normal open/closed status.</p>
+      <div class="field-row">
+        <div class="field">
+          <label for="privateEventEnabled"><input id="privateEventEnabled" type="checkbox" /> Enable private event</label>
+        </div>
+        <div class="field">
+          <label for="privateEventUseParkHours"><input id="privateEventUseParkHours" type="checkbox" /> Use park's normal opening hours</label>
+        </div>
+      </div>
+      <div class="field-row" id="privateEventCustomRow">
+        <div class="field">
+          <label for="privateEventOpen">Custom start</label>
+          <input id="privateEventOpen" type="time" />
+        </div>
+        <div class="field">
+          <label for="privateEventClose">Custom end</label>
+          <input id="privateEventClose" type="time" />
+        </div>
+      </div>
+    </div>
+
     <div class="panel">
       <h2>PLACE PINS</h2>
       <p>Click anywhere on the map to add a new ride pin there. Drag an existing pin to move it.</p>
@@ -70,8 +94,8 @@
     </div>
   </div>
 </div>
-<script src="config.js?v=6"></script>
-<script src="park-core.js?v=6"></script>
-<script src="admin.js?v=6"></script>
+<script src="config.js?v=14"></script>
+<script src="park-core.js?v=14"></script>
+<script src="admin.js?v=14"></script>
 </body>
 </html>
