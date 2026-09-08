@@ -18,7 +18,6 @@
   <!-- Login -->
   <div id="loginPanel" class="panel">
     <h2>LOG IN</h2>
-    <p>Paste a GitHub personal access token scoped to <code id="repoLabel"></code>. It's kept in memory only for this browser tab — it's never saved anywhere, and reloading the page clears it.</p>
     <div class="field-row">
       <div class="field">
         <label for="tokenInput">Personal access token</label>
@@ -27,12 +26,6 @@
       <button id="loginBtn">Log in</button>
     </div>
     <div id="loginMsg"></div>
-    <p style="font-size:12px;">
-      <a class="token-help" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">
-        Create a fine-grained token →
-      </a>
-      Scope it to this one repo only, with "Contents: Read and write" permission.
-    </p>
   </div>
 
   <!-- Main admin UI, hidden until logged in -->
