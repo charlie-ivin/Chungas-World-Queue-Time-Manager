@@ -131,6 +131,24 @@ const ParkCore = (() => {
     temp_shut: "Temporarily Shut",
   };
 
+  // ---- Per-ride custom hours (opens late / closes early) -------------
+  function computeRideCustomStatus(custom) {
+    const open = timeStringToMinutes(custom.open);
+    const close = timeStringToMinutes(custom.close);
+    if (open === null || close === null) {
+      return { inWindow: true, before: false, after: false };
+    }
+    const now = new Date();
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
+    const inWindow =
+      close > open
+        ? nowMinutes >= open && nowMinutes < close
+        : nowMinutes >= open || nowMinutes < close;
+    const before = !inWindow && close > open && nowMinutes < open;
+    const after = !inWindow && !before;
+    return { inWindow, before, after };
+  }
+
   // ---- Match the map canvas aspect ratio to the real image ----------
   function fitCanvasToImage(canvasEl, imageUrl) {
     return new Promise((resolve) => {
@@ -153,6 +171,7 @@ const ParkCore = (() => {
     loadData,
     timeStringToMinutes,
     computeParkStatus,
+    computeRideCustomStatus,
     formatMinutes,
     STATUS_LABELS,
     fitCanvasToImage,
