@@ -1,4 +1,16 @@
 {
+  "hours": {
+    "open": "09:00",
+    "close": "20:00",
+    "extended": false,
+    "closedAllDay": false,
+    "privateEvent": {
+      "enabled": false,
+      "useParkHours": true,
+      "open": "",
+      "close": ""
+    }
+  },
   "rides": [
     {
       "id": "tmp-4",
@@ -128,11 +140,5 @@
       "queue": 0,
       "status": "closed"
     }
-  ],
-  {
-  "hours": { "open": "09:00", "close": "20:00", "extended": false },
-  "rides": []
-}
-    }
-  }
+  ]
 }
