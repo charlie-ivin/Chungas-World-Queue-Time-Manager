@@ -4,8 +4,12 @@
   let data = { rides: [] };
   let nextTempId = 1;
 
-  document.getElementById("repoLabel").textContent = `${CFG.githubOwner}/${CFG.githubRepo}`;
-  document.getElementById("dataPathLabel").textContent = CFG.dataPath;
+  // These elements may not exist anymore (we removed the help text)
+  const repoLabel = document.getElementById("repoLabel");
+  if (repoLabel) repoLabel.textContent = `${CFG.githubOwner}/${CFG.githubRepo}`;
+
+  const dataPathLabel = document.getElementById("dataPathLabel");
+  if (dataPathLabel) dataPathLabel.textContent = CFG.dataPath;
 
   const loginMsg = document.getElementById("loginMsg");
   const loginState = document.getElementById("loginState");
