@@ -220,6 +220,19 @@
           <label>Status</label>
           <select data-field="status">${statusOptions(ride.status)}</select>
         </div>
+        <div class="field">
+          <label><input type="checkbox" data-field="customEnabled" ${ride.customHours && ride.customHours.enabled ? "checked" : ""} /> Custom hours</label>
+        </div>
+        <div class="field" data-custom-fields style="display:${ride.customHours && ride.customHours.enabled ? "flex" : "none"}; flex-direction:row; gap:6px; align-items:flex-end;">
+          <div class="field">
+            <label>Opens</label>
+            <input type="time" data-field="customOpen" value="${(ride.customHours && ride.customHours.open) || ""}" />
+          </div>
+          <div class="field">
+            <label>Closes</label>
+            <input type="time" data-field="customClose" value="${(ride.customHours && ride.customHours.close) || ""}" />
+          </div>
+        </div>
         <button class="danger" data-action="delete">Remove</button>
       `;
       row.querySelector('[data-field="name"]').addEventListener("input", (e) => {
@@ -234,6 +247,19 @@
         ride.status = e.target.value;
         const marker = document.querySelector(`.pin[data-id="${ride.id}"] .pin-marker`);
         if (marker) marker.className = "pin-marker status-" + ride.status;
+      });
+      row.querySelector('[data-field="customEnabled"]').addEventListener("change", (e) => {
+        if (!ride.customHours) ride.customHours = { enabled: false, open: "", close: "" };
+        ride.customHours.enabled = e.target.checked;
+        row.querySelector('[data-custom-fields]').style.display = e.target.checked ? "flex" : "none";
+      });
+      row.querySelector('[data-field="customOpen"]').addEventListener("change", (e) => {
+        if (!ride.customHours) ride.customHours = { enabled: false, open: "", close: "" };
+        ride.customHours.open = e.target.value;
+      });
+      row.querySelector('[data-field="customClose"]').addEventListener("change", (e) => {
+        if (!ride.customHours) ride.customHours = { enabled: false, open: "", close: "" };
+        ride.customHours.close = e.target.value;
       });
       row.querySelector('[data-action="delete"]').addEventListener("click", () => {
         data.rides = data.rides.filter((r) => r.id !== ride.id);
