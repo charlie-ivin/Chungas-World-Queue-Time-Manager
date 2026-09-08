@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Park Admin</title>
-<link rel="stylesheet" href="style.css?v=18" />
+<link rel="stylesheet" href="style.css?v=20" />
 </head>
 <body>
 
@@ -15,7 +15,6 @@
 
 <div class="admin-shell">
 
-  <!-- Login -->
   <div id="loginPanel" class="panel">
     <h2>LOG IN</h2>
     <div class="field-row">
@@ -26,9 +25,10 @@
       <button id="loginBtn">Log in</button>
     </div>
     <div id="loginMsg"></div>
+    <!-- Required by admin.js -->
+    <span id="repoLabel" style="display:none;"></span>
   </div>
 
-  <!-- Main admin UI, hidden until logged in -->
   <div id="adminMain" style="display:none;">
 
     <div class="panel">
@@ -99,8 +99,8 @@
   </div>
 </div>
 
-<script src="config.js?v=18"></script>
-<script src="park-core.js?v=18"></script>
-<script src="admin.js?v=18"></script>
+<script src="config.js?v=20"></script>
+<script src="park-core.js?v=20"></script>
+<script src="admin.js?v=20"></script>
 </body>
 </html>
