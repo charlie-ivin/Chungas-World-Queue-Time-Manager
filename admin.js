@@ -72,6 +72,10 @@
     closeInput.addEventListener("change", (e) => { data.hours.close = e.target.value; });
     extendedInput.addEventListener("change", (e) => { data.hours.extended = e.target.checked; });
 
+    const closedAllDayInput = document.getElementById("closedAllDayToggle");
+    closedAllDayInput.checked = !!data.hours.closedAllDay;
+    closedAllDayInput.addEventListener("change", (e) => { data.hours.closedAllDay = e.target.checked; });
+
     // ── Private event ──
     if (!data.hours.privateEvent) {
       data.hours.privateEvent = { enabled: false, useParkHours: true, open: "", close: "" };
