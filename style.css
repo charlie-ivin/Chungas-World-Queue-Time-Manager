@@ -67,6 +67,16 @@ body {
   color: var(--ink);
 }
 
+.park-status-pill.closing-soon {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+.park-status-pill.private-event {
+  background: var(--sky);
+  color: var(--ink);
+}
+
 /* ── Map ─────────────────────────────────────────────────── */
 .map-wrap {
   padding: 18px;
@@ -129,6 +139,8 @@ body {
 .pin-marker.status-closed { background: var(--stone); }
 .pin-marker.status-temp_shut { background: var(--red); }
 .pin-marker.status-park_closed { background: var(--stone-dark); }
+.pin-marker.status-ride_opening_soon { background: var(--amber); }
+.pin-marker.status-ride_closed_today { background: var(--stone); }
 
 .pin-label {
   margin-top: 4px;
@@ -271,6 +283,8 @@ html.map-only-html, body.map-only {
 
 .map-status-badge.closed { background: var(--red); }
 .map-status-badge.extended { background: var(--gold); color: var(--ink); }
+.map-status-badge.closing-soon { background: var(--amber); color: var(--ink); }
+.map-status-badge.private-event { background: var(--sky); color: var(--ink); }
 
 @media (max-width: 600px) {
   .map-status-badge {
