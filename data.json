@@ -5,10 +5,10 @@
     "extended": false,
     "closedAllDay": false,
     "privateEvent": {
-      "enabled": false,
-      "useParkHours": true,
-      "open": "",
-      "close": ""
+      "enabled": true,
+      "useParkHours": false,
+      "open": "15:44",
+      "close": "22:45"
     }
   },
   "rides": [
