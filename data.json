@@ -50,7 +50,12 @@
       "x": 81.4,
       "y": 86.6,
       "queue": 0,
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "09:00",
+        "close": "18:00"
+      }
     },
     {
       "id": "ride-2",
