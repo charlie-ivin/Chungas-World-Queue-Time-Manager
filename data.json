@@ -119,14 +119,6 @@
       "status": "closed"
     },
     {
-      "id": "tmp-1",
-      "name": "Chungas Speedway",
-      "x": 60.1,
-      "y": 20.1,
-      "queue": 5,
-      "status": "open"
-    },
-    {
       "id": "tmp-2",
       "name": "Bumper Boats",
       "x": 38.9,
@@ -149,27 +141,6 @@
       "y": 53.9,
       "queue": 0,
       "status": "closed"
-    },
-    {
-      "id": "tmp-1",
-      "name": "Ice Boat Racing",
-      "x": 38.8,
-      "y": 71.7,
-      "queue": 0,
-      "status": "open",
-      "customHours": {
-        "enabled": true,
-        "open": "11:00",
-        "close": "18:00"
-      }
-    },
-    {
-      "id": "tmp-1",
-      "name": "The Swarm",
-      "x": 49.5,
-      "y": 69,
-      "queue": 0,
-      "status": "engineering"
     }
   ]
 }
