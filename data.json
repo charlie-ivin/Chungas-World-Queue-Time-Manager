@@ -170,6 +170,19 @@
       "y": 24.4,
       "queue": 5,
       "status": "open"
+    },
+    {
+      "id": "tmp-1",
+      "name": "Under The Sea",
+      "x": 91.5,
+      "y": 72.4,
+      "queue": 0,
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "11:00",
+        "close": "18:00"
+      }
     }
   ]
 }
