@@ -162,6 +162,14 @@
         "open": "11:00",
         "close": "18:00"
       }
+    },
+    {
+      "id": "tmp-1",
+      "name": "The Swarm",
+      "x": 49.5,
+      "y": 69,
+      "queue": 0,
+      "status": "engineering"
     }
   ]
 }
