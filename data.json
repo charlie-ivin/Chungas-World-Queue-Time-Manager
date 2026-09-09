@@ -33,7 +33,7 @@
       "name": "Minecraft Hyperia",
       "x": 13.2,
       "y": 30.3,
-      "queue": 10,
+      "queue": 15,
       "status": "open"
     },
     {
@@ -123,7 +123,7 @@
       "name": "Chungas Speedway",
       "x": 60.1,
       "y": 20.1,
-      "queue": 10,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -131,7 +131,7 @@
       "name": "Bumper Boats",
       "x": 38.9,
       "y": 52.3,
-      "queue": 5,
+      "queue": 0,
       "status": "open"
     },
     {
@@ -139,7 +139,7 @@
       "name": "Tower Drop",
       "x": 40.7,
       "y": 29.4,
-      "queue": 5,
+      "queue": 0,
       "status": "open"
     },
     {
