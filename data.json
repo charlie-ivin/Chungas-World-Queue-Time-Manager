@@ -180,7 +180,7 @@
       "status": "open",
       "customHours": {
         "enabled": true,
-        "open": "11:00",
+        "open": "10:00",
         "close": "18:00"
       }
     }
