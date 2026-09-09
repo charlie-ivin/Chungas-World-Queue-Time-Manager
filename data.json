@@ -149,6 +149,14 @@
       "y": 53.9,
       "queue": 0,
       "status": "closed"
+    },
+    {
+      "id": "tmp-1",
+      "name": "Ice Boat Racing",
+      "x": 38.8,
+      "y": 71.7,
+      "queue": 0,
+      "status": "open"
     }
   ]
 }
