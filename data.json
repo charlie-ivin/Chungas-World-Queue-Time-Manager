@@ -156,7 +156,12 @@
       "x": 38.8,
       "y": 71.7,
       "queue": 0,
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "11:00",
+        "close": "18:00"
+      }
     }
   ]
 }
