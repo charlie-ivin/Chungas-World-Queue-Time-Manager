@@ -33,7 +33,7 @@
       "name": "Minecraft Hyperia",
       "x": 13.2,
       "y": 30.3,
-      "queue": 15,
+      "queue": 25,
       "status": "open"
     },
     {
@@ -161,7 +161,7 @@
       "x": 49.5,
       "y": 70.5,
       "queue": 0,
-      "status": "engineering"
+      "status": "open"
     },
     {
       "id": "tmp-3",
