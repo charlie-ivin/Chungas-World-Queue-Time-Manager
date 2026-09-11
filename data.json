@@ -33,7 +33,7 @@
       "name": "Minecraft Hyperia",
       "x": 13.2,
       "y": 30.3,
-      "queue": 25,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -70,7 +70,7 @@
       "name": "Minecraft Mandrill Mayhem",
       "x": 29.4,
       "y": 15.5,
-      "queue": 5,
+      "queue": 10,
       "status": "open"
     },
     {
@@ -131,7 +131,7 @@
       "name": "Tower Drop",
       "x": 40.7,
       "y": 29.4,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -160,7 +160,7 @@
       "name": "The Swarm",
       "x": 49.5,
       "y": 70.5,
-      "queue": 0,
+      "queue": 10,
       "status": "open"
     },
     {
@@ -168,7 +168,7 @@
       "name": "Chungas Speedway",
       "x": 59.7,
       "y": 24.4,
-      "queue": 5,
+      "queue": 15,
       "status": "open"
     },
     {
