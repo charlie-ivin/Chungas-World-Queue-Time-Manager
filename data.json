@@ -187,6 +187,14 @@
         "open": "10:00",
         "close": "18:00"
       }
+    },
+    {
+      "id": "ride-mtyonthy-8gwku",
+      "name": "Indoor Seating",
+      "x": 73.8,
+      "y": 52.3,
+      "queue": "na",
+      "status": "open"
     }
   ]
 }
