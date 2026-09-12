@@ -75,6 +75,16 @@
     closedAllDayInput.checked = !!data.hours.closedAllDay;
     closedAllDayInput.addEventListener("change", (e) => { data.hours.closedAllDay = e.target.checked; });
 
+    if (!data.hours.seasonalClosure) {
+      data.hours.seasonalClosure = { enabled: false, reopenText: "" };
+    }
+    const seasonalToggle = document.getElementById("seasonalClosureToggle");
+    const seasonalText = document.getElementById("seasonalReopenText");
+    seasonalToggle.checked = !!data.hours.seasonalClosure.enabled;
+    seasonalText.value = data.hours.seasonalClosure.reopenText || "";
+    seasonalToggle.addEventListener("change", (e) => { data.hours.seasonalClosure.enabled = e.target.checked; });
+    seasonalText.addEventListener("change", (e) => { data.hours.seasonalClosure.reopenText = e.target.value; });
+
     // ── Private event ──
     if (!data.hours.privateEvent) {
       data.hours.privateEvent = { enabled: false, useParkHours: true, open: "", close: "" };
