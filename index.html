@@ -80,10 +80,10 @@ async function render() {
           ? `Opens ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.customHours.open))}`
           : "Closed for today";
       } else {
-        queueText = `${ride.queue} min queue`;
+        queueText = ride.queue === "na" ? "Open" : `${ride.queue} min queue`;
       }
     } else {
-      queueText = `${ride.queue} min queue`;
+      queueText = ride.queue === "na" ? "Open" : `${ride.queue} min queue`;
     }
 
     marker.className = "pin-marker status-" + effectiveStatus;
