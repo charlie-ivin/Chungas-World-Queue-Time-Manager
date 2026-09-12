@@ -96,8 +96,8 @@
     {
       "id": "ride-4",
       "name": "The Zoo",
-      "x": 90.6,
-      "y": 53.7,
+      "x": 85.4,
+      "y": 65.5,
       "queue": 0,
       "status": "open",
       "customHours": {
@@ -216,6 +216,19 @@
       "y": 25.1,
       "queue": "na",
       "status": "open"
+    },
+    {
+      "id": "ride-mtyqdb6n-kvmao",
+      "name": "Coasters Park Hotel Entrance",
+      "x": 90.8,
+      "y": 54.6,
+      "queue": "na",
+      "status": "open",
+      "customHours": {
+        "enabled": false,
+        "open": "",
+        "close": ""
+      }
     }
   ]
 }
