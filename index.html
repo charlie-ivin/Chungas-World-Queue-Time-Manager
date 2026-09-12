@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" class="map-only-html">
 <head>
@@ -69,9 +70,7 @@ async function render() {
     let effectiveStatus = baseStatus;
     let queueText;
 
-    if (baseStatus === "closed" && ride.reopensAt) {
-      queueText = `Reopening · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.reopensAt))}`;
-    } else if (baseStatus !== "open") {
+    if (baseStatus !== "open") {
       queueText = ParkCore.STATUS_LABELS[effectiveStatus];
     } else if (ride.customHours && ride.customHours.enabled) {
       const cs = ParkCore.computeRideCustomStatus(ride.customHours);
