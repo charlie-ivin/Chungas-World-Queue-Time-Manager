@@ -108,7 +108,12 @@
       "x": 69.4,
       "y": 64.9,
       "queue": 0,
-      "status": "closed"
+      "status": "closed",
+      "customHours": {
+        "enabled": false,
+        "open": "",
+        "close": ""
+      }
     },
     {
       "id": "ride-5",
@@ -140,7 +145,7 @@
       "x": 82,
       "y": 53.9,
       "queue": 0,
-      "status": "closed"
+      "status": "private_event"
     },
     {
       "id": "tmp-1",
