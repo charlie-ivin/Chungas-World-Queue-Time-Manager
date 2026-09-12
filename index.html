@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Park Map</title>
-<link rel="stylesheet" href="style.css?v=17" />
+<link rel="stylesheet" href="style.css?v=19" />
 </head>
 <body class="map-only">
 
@@ -17,8 +17,8 @@
   </div>
 </div>
 
-<script src="config.js?v=17"></script>
-<script src="park-core.js?v=17"></script>
+<script src="config.js?v=19"></script>
+<script src="park-core.js?v=19"></script>
 <script>
 async function render() {
   const canvas = document.getElementById("mapCanvas");
@@ -37,7 +37,9 @@ async function render() {
   const data = await ParkCore.loadData();
   const parkStatus = ParkCore.computeParkStatus(data.hours);
 
-  pill.textContent = parkStatus.isPrivateEvent
+  pill.textContent = parkStatus.isSeasonalClosure
+    ? (parkStatus.seasonalMessage ? `Closed — Opens ${parkStatus.seasonalMessage}` : "Closed for the Season")
+    : parkStatus.isPrivateEvent
     ? "Private Event"
     : data.hours.extended
     ? "Open — Extended Hours"
@@ -48,7 +50,7 @@ async function render() {
     : parkStatus.isOpeningSoon
     ? `Opening Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}`
     : "Park Closed";
-  pill.classList.toggle("closed", !parkStatus.isOpen && !parkStatus.isOpeningSoon);
+  pill.classList.toggle("closed", (!parkStatus.isOpen && !parkStatus.isOpeningSoon) || parkStatus.isSeasonalClosure);
   pill.classList.toggle("extended", (!!data.hours.extended || parkStatus.isOpeningSoon) && !parkStatus.isPrivateEvent && !parkStatus.isClosingSoon);
   pill.classList.toggle("closing-soon", parkStatus.isClosingSoon);
   pill.classList.toggle("private-event", parkStatus.isPrivateEvent);
