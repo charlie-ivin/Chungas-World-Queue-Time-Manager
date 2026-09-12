@@ -134,7 +134,7 @@
       "id": "tmp-3",
       "name": "Tower Drop",
       "x": 40.7,
-      "y": 29.4,
+      "y": 33.8,
       "queue": 5,
       "status": "open"
     },
@@ -175,8 +175,8 @@
     {
       "id": "ride-fix-3",
       "name": "Chungas Speedway",
-      "x": 59.7,
-      "y": 24.4,
+      "x": 59.9,
+      "y": 17.8,
       "queue": 15,
       "status": "open"
     },
