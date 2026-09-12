@@ -69,7 +69,9 @@ async function render() {
     let effectiveStatus = baseStatus;
     let queueText;
 
-    if (baseStatus !== "open") {
+    if (baseStatus === "closed" && ride.reopensAt) {
+      queueText = `Reopening · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.reopensAt))}`;
+    } else if (baseStatus !== "open") {
       queueText = ParkCore.STATUS_LABELS[effectiveStatus];
     } else if (ride.customHours && ride.customHours.enabled) {
       const cs = ParkCore.computeRideCustomStatus(ride.customHours);
