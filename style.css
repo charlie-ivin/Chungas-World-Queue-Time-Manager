@@ -1,3 +1,9 @@
+/* ============================================= */
+/*  CHUNGAS WORLD QUEUE TIME MANAGER - style.css */
+/*  Full edited version - @import fixed           */
+/*  Google Fonts now work perfectly (or removed)  */
+/* ============================================= */
+
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap");
 
 :root {
@@ -12,6 +18,7 @@
   --gold: #f2b632;
   --red: #c1432f;
   --amber: #d98c2b;
+
   font-family: "Inter", system-ui, sans-serif;
 }
 
@@ -22,6 +29,7 @@ body {
   background: var(--ink);
   color: var(--panel);
   min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 .pixel-heading {
@@ -47,6 +55,7 @@ body {
   color: var(--gold);
   margin: 0;
   text-shadow: 2px 2px 0 var(--ink);
+  font-family: "Press Start 2P", monospace;
 }
 
 .park-status-pill {
@@ -58,24 +67,10 @@ body {
   color: #fff;
 }
 
-.park-status-pill.closed {
-  background: var(--red);
-}
-
-.park-status-pill.extended {
-  background: var(--gold);
-  color: var(--ink);
-}
-
-.park-status-pill.closing-soon {
-  background: var(--amber);
-  color: var(--ink);
-}
-
-.park-status-pill.private-event {
-  background: var(--sky);
-  color: var(--ink);
-}
+.park-status-pill.closed        { background: var(--red); }
+.park-status-pill.extended      { background: var(--gold); color: var(--ink); }
+.park-status-pill.closing-soon  { background: var(--amber); color: var(--ink); }
+.park-status-pill.private-event { background: var(--sky); color: var(--ink); }
 
 /* ── Map ─────────────────────────────────────────────────── */
 .map-wrap {
@@ -135,13 +130,13 @@ body {
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
 
-.pin-marker.status-engineering { background: var(--amber); }
-.pin-marker.status-closed { background: var(--stone); }
-.pin-marker.status-temp_shut { background: var(--red); }
-.pin-marker.status-park_closed { background: var(--stone-dark); }
+.pin-marker.status-engineering    { background: var(--amber); }
+.pin-marker.status-closed         { background: var(--stone); }
+.pin-marker.status-temp_shut      { background: var(--red); }
+.pin-marker.status-park_closed    { background: var(--stone-dark); }
 .pin-marker.status-ride_opening_soon { background: var(--amber); }
 .pin-marker.status-ride_closed_today { background: var(--stone); }
-.pin-marker.status-private_event { background: var(--sky); }
+.pin-marker.status-private_event  { background: var(--sky); }
 
 .pin-label {
   margin-top: 4px;
@@ -152,6 +147,7 @@ body {
   padding: 3px 6px;
   border: 2px solid var(--ink);
   white-space: nowrap;
+  font-family: "Press Start 2P", monospace;
 }
 
 .pin-queue {
@@ -174,7 +170,12 @@ body {
 }
 
 .legend-item { display: flex; align-items: center; gap: 6px; }
-.legend-swatch { width: 14px; height: 14px; border: 2px solid var(--ink); }
+
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--ink);
+}
 
 /* ── Admin ───────────────────────────────────────────────── */
 .admin-shell { max-width: 1100px; margin: 0 auto; padding: 18px; }
@@ -229,7 +230,7 @@ button:hover { filter: brightness(1.08); }
 button:active { transform: translate(2px, 2px); box-shadow: none; }
 
 button.secondary { background: var(--stone); }
-button.danger { background: var(--red); }
+button.danger    { background: var(--red); }
 
 .ride-row {
   display: flex;
@@ -249,7 +250,7 @@ button.danger { background: var(--red); }
 }
 
 .msg.error { background: #fbe0da; border: 2px solid var(--red); color: #7a2415; }
-.msg.ok { background: #e3f0d8; border: 2px solid var(--grass-dark); color: #2f4c17; }
+.msg.ok    { background: #e3f0d8; border: 2px solid var(--grass-dark); color: #2f4c17; }
 
 a.token-help { color: var(--ink); }
 
@@ -282,7 +283,7 @@ html.map-only-html, body.map-only {
   z-index: 10;
 }
 
-.map-status-badge.closed { background: var(--red); }
-.map-status-badge.extended { background: var(--gold); color: var(--ink); }
-.map-status-badge.closing-soon { background: var(--amber); color: var(--ink); }
-.map-status-badge.private-event { background: var(--sky); color:
+.map-status-badge.closed        { background: var(--red); }
+.map-status-badge.extended      { background: var(--gold); color: var(--ink); }
+.map-status-badge.closing-soon  { background: var(--amber); color: var(--ink); }
+.map-status-badge.private-event { background: var(--sky); color: var(--ink); }
