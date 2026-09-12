@@ -200,6 +200,14 @@
       "y": 51.3,
       "queue": "na",
       "status": "open"
+    },
+    {
+      "id": "ride-mtyq3esf-7ah0t",
+      "name": "The Speedway Shop",
+      "x": 63.4,
+      "y": 34.5,
+      "queue": "na",
+      "status": "open"
     }
   ]
 }
