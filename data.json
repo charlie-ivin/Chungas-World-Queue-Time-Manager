@@ -208,6 +208,14 @@
       "y": 34.5,
       "queue": "na",
       "status": "open"
+    },
+    {
+      "id": "ride-mtyq583p-08ivw",
+      "name": "Speedway Bar & Kitchen",
+      "x": 66.6,
+      "y": 22.8,
+      "queue": "na",
+      "status": "open"
     }
   ]
 }
