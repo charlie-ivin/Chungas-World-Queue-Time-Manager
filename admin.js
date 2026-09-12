@@ -211,3 +211,116 @@
       list.innerHTML = "<p>No rides yet — click the map above to add one.</p>";
       return;
     }
+    data.rides.forEach((ride) => {
+      const row = document.createElement("div");
+      row.className = "ride-row";
+      row.innerHTML = `
+        <div class="field">
+          <label>Name</label>
+          <input type="text" value="${ride.name}" data-field="name" />
+        </div>
+        <div class="field">
+          <label>Queue time</label>
+          <select data-field="queue">${queueOptions(ride.queue)}</select>
+        </div>
+        <div class="field">
+          <label>Status</label>
+          <select data-field="status">${statusOptions(ride.status)}</select>
+        </div>
+        <div class="field">
+          <label><input type="checkbox" data-field="customEnabled" ${ride.customHours && ride.customHours.enabled ? "checked" : ""} /> Custom hours</label>
+        </div>
+        <div class="field" data-custom-fields style="display:${ride.customHours && ride.customHours.enabled ? "flex" : "none"}; flex-direction:row; gap:6px; align-items:flex-end;">
+          <div class="field">
+            <label>Opens</label>
+            <input type="time" data-field="customOpen" value="${(ride.customHours && ride.customHours.open) || ""}" />
+          </div>
+          <div class="field">
+            <label>Closes</label>
+            <input type="time" data-field="customClose" value="${(ride.customHours && ride.customHours.close) || ""}" />
+          </div>
+        </div>
+        <button class="danger" data-action="delete">Remove</button>
+      `;
+      row.querySelector('[data-field="name"]').addEventListener("input", (e) => {
+        ride.name = e.target.value;
+        const pin = document.querySelector(`.pin[data-id="${ride.id}"] .pin-label`);
+        if (pin) pin.textContent = ride.name;
+      });
+      row.querySelector('[data-field="queue"]').addEventListener("change", (e) => {
+        ride.queue = e.target.value === "na" ? "na" : parseInt(e.target.value, 10);
+      });
+      row.querySelector('[data-field="status"]').addEventListener("change", (e) => {
+        ride.status = e.target.value;
+        const marker = document.querySelector(`.pin[data-id="${ride.id}"] .pin-marker`);
+        if (marker) marker.className = "pin-marker status-" + ride.status;
+      });
+      row.querySelector('[data-field="customEnabled"]').addEventListener("change", (e) => {
+        if (!ride.customHours) ride.customHours = { enabled: false, open: "", close: "" };
+        ride.customHours.enabled = e.target.checked;
+        row.querySelector('[data-custom-fields]').style.display = e.target.checked ? "flex" : "none";
+      });
+      row.querySelector('[data-field="customOpen"]').addEventListener("change", (e) => {
+        if (!ride.customHours) ride.customHours = { enabled: false, open: "", close: "" };
+        ride.customHours.open = e.target.value;
+      });
+      row.querySelector('[data-field="customClose"]').addEventListener("change", (e) => {
+        if (!ride.customHours) ride.customHours = { enabled: false, open: "", close: "" };
+        ride.customHours.close = e.target.value;
+      });
+      row.querySelector('[data-action="delete"]').addEventListener("click", () => {
+        data.rides = data.rides.filter((r) => r.id !== ride.id);
+        const pin = document.querySelector(`.pin[data-id="${ride.id}"]`);
+        if (pin) pin.remove();
+        renderList();
+      });
+      list.appendChild(row);
+    });
+  }
+
+  // ── Save (commit) to GitHub ─────────────────────────────
+  document.getElementById("saveBtn").addEventListener("click", async () => {
+    saveMsg.innerHTML = "";
+    try {
+      const getRes = await fetch(
+        `https://api.github.com/repos/${CFG.githubOwner}/${CFG.githubRepo}/contents/${CFG.dataPath}?ref=${CFG.githubBranch}&_=${Date.now()}`,
+        { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
+      );
+      if (!getRes.ok) {
+        showMsg(saveMsg, `Couldn't read current file (status ${getRes.status}).`, false);
+        return;
+      }
+      const getJson = await getRes.json();
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
+      const putRes = await fetch(
+        `https://api.github.com/repos/${CFG.githubOwner}/${CFG.githubRepo}/contents/${CFG.dataPath}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message: "Update park data",
+            content,
+            sha: getJson.sha,
+            branch: CFG.githubBranch,
+          }),
+        }
+      );
+      if (!putRes.ok) {
+        const errJson = await putRes.json().catch(() => ({}));
+        const hint =
+          putRes.status === 409
+            ? " This usually means the file changed elsewhere since you loaded this page — reload admin.html (your unsaved edits will be lost, so note them down first) and try again."
+            : "";
+        showMsg(saveMsg, `Save failed (status ${putRes.status}): ${errJson.message || "unknown error"}.${hint}`, false);
+        return;
+      }
+      showMsg(saveMsg, "Saved. The public map will pick this up on its next refresh.", true);
+    } catch (e) {
+      showMsg(saveMsg, "Network error while saving.", false);
+    }
+  });
+})();
