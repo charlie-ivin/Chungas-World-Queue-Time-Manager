@@ -11,7 +11,7 @@
       "close": "22:45"
     },
     "seasonalClosure": {
-      "enabled": true,
+      "enabled": false,
       "reopenText": "We Will Be Back In 2027!"
     }
   },
