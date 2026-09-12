@@ -96,8 +96,8 @@
     {
       "id": "ride-4",
       "name": "The Zoo",
-      "x": 85.4,
-      "y": 65.5,
+      "x": 85,
+      "y": 66.7,
       "queue": 0,
       "status": "open",
       "customHours": {
@@ -141,8 +141,8 @@
     {
       "id": "ride-6",
       "name": "Event Hall",
-      "x": 83.2,
-      "y": 53.7,
+      "x": 83,
+      "y": 51.6,
       "queue": "na",
       "status": "closed",
       "customHours": {
@@ -220,8 +220,8 @@
     {
       "id": "ride-mtyqdb6n-kvmao",
       "name": "Park Hotel Entrance",
-      "x": 90.8,
-      "y": 54.6,
+      "x": 90.6,
+      "y": 56.2,
       "queue": "na",
       "status": "open",
       "customHours": {
