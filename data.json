@@ -155,7 +155,7 @@
       "status": "open",
       "customHours": {
         "enabled": true,
-        "open": "18:35",
+        "open": "11:00",
         "close": "19:00"
       }
     },
