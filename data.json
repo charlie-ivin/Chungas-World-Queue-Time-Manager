@@ -144,7 +144,7 @@
       "x": 82,
       "y": 53.9,
       "queue": "na",
-      "status": "private_event",
+      "status": "closed",
       "customHours": {
         "enabled": false,
         "open": "10:00",
