@@ -143,10 +143,10 @@
       "name": "Event Hall",
       "x": 82,
       "y": 53.9,
-      "queue": 0,
+      "queue": "na",
       "status": "private_event",
       "customHours": {
-        "enabled": true,
+        "enabled": false,
         "open": "10:00",
         "close": "22:00"
       }
