@@ -9,6 +9,10 @@
       "useParkHours": true,
       "open": "15:44",
       "close": "22:45"
+    },
+    "seasonalClosure": {
+      "enabled": true,
+      "reopenText": "We Will Be Back In 2027!"
     }
   },
   "rides": [
@@ -108,12 +112,7 @@
       "x": 69.4,
       "y": 64.9,
       "queue": 0,
-      "status": "closed",
-      "customHours": {
-        "enabled": false,
-        "open": "",
-        "close": ""
-      }
+      "status": "closed"
     },
     {
       "id": "ride-5",
@@ -145,7 +144,7 @@
       "x": 82,
       "y": 53.9,
       "queue": 0,
-      "status": "private_event"
+      "status": "closed"
     },
     {
       "id": "tmp-1",
