@@ -68,6 +68,17 @@ const ParkCore = (() => {
         }
       }
     }
+    if (hours.seasonalClosure && hours.seasonalClosure.enabled) {
+      return {
+        isOpen: false,
+        isOpeningSoon: false,
+        isClosingSoon: false,
+        isPrivateEvent: false,
+        isSeasonalClosure: true,
+        seasonalMessage: hours.seasonalClosure.reopenText || "",
+        reason: "Closed for the season",
+      };
+    }
 
     if (hours.closedAllDay) {
       return {
