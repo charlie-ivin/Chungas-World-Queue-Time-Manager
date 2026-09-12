@@ -144,7 +144,12 @@
       "x": 82,
       "y": 53.9,
       "queue": 0,
-      "status": "private_event"
+      "status": "private_event",
+      "customHours": {
+        "enabled": true,
+        "open": "10:00",
+        "close": "22:00"
+      }
     },
     {
       "id": "tmp-1",
