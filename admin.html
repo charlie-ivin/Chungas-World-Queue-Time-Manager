@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Park Admin</title>
-<link rel="stylesheet" href="style.css?v=17" />
+<link rel="stylesheet" href="style.css?v=19" />
 </head>
 <body>
 
@@ -56,6 +56,13 @@
         <div class="field">
           <label for="closedAllDayToggle"><input id="closedAllDayToggle" type="checkbox" /> Closed all day (park not opening today)</label>
         </div>
+        <div class="field">
+          <label for="seasonalClosureToggle"><input id="seasonalClosureToggle" type="checkbox" /> Closed for the season</label>
+        </div>
+        <div class="field" id="seasonalReopenRow">
+          <label for="seasonalReopenText">Reopening message</label>
+          <input id="seasonalReopenText" type="text" placeholder="e.g. October" style="width:180px" />
+        </div>
       </div>
     </div>
 
@@ -106,8 +113,8 @@
   </div>
 </div>
 
-<script src="config.js?v=17"></script>
-<script src="park-core.js?v=17"></script>
-<script src="admin.js?v=17"></script>
+<script src="config.js?v=19"></script>
+<script src="park-core.js?v=19"></script>
+<script src="admin.js?v=19"></script>
 </body>
 </html>
