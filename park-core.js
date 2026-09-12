@@ -139,6 +139,7 @@ const ParkCore = (() => {
     engineering: "Closed — Engineering Work",
     closed: "Closed — All Day",
     temp_shut: "Temporarily Shut",
+    private_event: "Private Event",
   };
 
   // ---- Per-ride custom hours (opens late / closes early) -------------
