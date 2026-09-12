@@ -141,6 +141,7 @@ body {
 .pin-marker.status-park_closed { background: var(--stone-dark); }
 .pin-marker.status-ride_opening_soon { background: var(--amber); }
 .pin-marker.status-ride_closed_today { background: var(--stone); }
+.pin-marker.status-private_event { background: var(--sky); }
 
 .pin-label {
   margin-top: 4px;
