@@ -68,6 +68,7 @@ const ParkCore = (() => {
         }
       }
     }
+
     if (hours.seasonalClosure && hours.seasonalClosure.enabled) {
       return {
         isOpen: false,
