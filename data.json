@@ -96,8 +96,8 @@
     {
       "id": "ride-4",
       "name": "The Zoo",
-      "x": 90.5,
-      "y": 56.1,
+      "x": 90.6,
+      "y": 53.7,
       "queue": 0,
       "status": "open",
       "customHours": {
@@ -141,8 +141,8 @@
     {
       "id": "ride-6",
       "name": "Event Hall",
-      "x": 82,
-      "y": 53.9,
+      "x": 83.2,
+      "y": 53.7,
       "queue": "na",
       "status": "closed",
       "customHours": {
@@ -196,8 +196,8 @@
     {
       "id": "ride-mtyonthy-8gwku",
       "name": "Indoor Seating",
-      "x": 73.8,
-      "y": 52.3,
+      "x": 74.8,
+      "y": 51.3,
       "queue": "na",
       "status": "open"
     }
