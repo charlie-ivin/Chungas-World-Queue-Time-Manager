@@ -96,8 +96,8 @@
     {
       "id": "ride-4",
       "name": "The Zoo",
-      "x": 89.3,
-      "y": 54.5,
+      "x": 90.5,
+      "y": 56.1,
       "queue": 0,
       "status": "open",
       "customHours": {
