@@ -1,13 +1,12 @@
-
+<!doctype html>
+<html lang="en" class="map-only-html">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Park Map</title>
-
-<link rel="icon" type="image/svg+xml" href="favicon.png" />
-
 <link rel="stylesheet" href="style.css?v=19" />
 </head>
+<body class="map-only">
 
 <div class="map-wrap map-wrap-tight">
   <div id="mapCanvas" class="map-canvas">
@@ -70,15 +69,23 @@ async function render() {
     let effectiveStatus = baseStatus;
     let queueText;
 
-    if (baseStatus !== "open") {
+    if (baseStatus === "closed" && ride.reopensAt) {
+      queueText = `Reopening · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.reopensAt))}`;
+    } else if (baseStatus !== "open") {
       queueText = ParkCore.STATUS_LABELS[effectiveStatus];
     } else if (ride.customHours && ride.customHours.enabled) {
       const cs = ParkCore.computeRideCustomStatus(ride.customHours);
-      if (!cs.inWindow) {
-        effectiveStatus = cs.before ? "ride_opening_soon" : "ride_closed_today";
-        queueText = cs.before
-          ? `Delayed Opening · Opens ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.customHours.open))}`
-          : "Closed for today";
+      const customOpenMins = ParkCore.timeStringToMinutes(ride.customHours.open);
+      const parkOpenMins = ParkCore.timeStringToMinutes(data.hours.open);
+      const isActuallyDelayed =
+        customOpenMins !== null && parkOpenMins !== null && customOpenMins > parkOpenMins;
+
+      if (!cs.inWindow && !cs.before) {
+        effectiveStatus = "ride_closed_today";
+        queueText = "Closed for today";
+      } else if (!cs.inWindow && cs.before && isActuallyDelayed) {
+        effectiveStatus = "ride_opening_soon";
+        queueText = `Delayed Opening · Opens ${ParkCore.formatMinutes(customOpenMins)}`;
       } else if (!parkStatus.isOpen) {
         effectiveStatus = "park_closed";
         queueText = parkStatus.isOpeningSoon ? "Opening soon" : "Park closed";
