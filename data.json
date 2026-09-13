@@ -109,8 +109,8 @@
     {
       "id": "tmp-9",
       "name": "End Den",
-      "x": 68.4,
-      "y": 77.2,
+      "x": 68.5,
+      "y": 78.1,
       "queue": 0,
       "status": "closed"
     },
@@ -259,8 +259,8 @@
     {
       "id": "ride-mu050h3v-0yll8",
       "name": "No Way Out",
-      "x": 69,
-      "y": 66.7,
+      "x": 68.9,
+      "y": 64.8,
       "queue": 0,
       "status": "closed"
     }
