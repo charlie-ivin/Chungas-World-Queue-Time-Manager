@@ -175,8 +175,8 @@
     {
       "id": "ride-fix-3",
       "name": "Chungas Speedway",
-      "x": 59.1,
-      "y": 21.2,
+      "x": 58.8,
+      "y": 20.1,
       "queue": 10,
       "status": "open"
     },
@@ -204,16 +204,16 @@
     {
       "id": "ride-mtyq3esf-7ah0t",
       "name": "The Speedway Shop",
-      "x": 63.6,
-      "y": 38.5,
+      "x": 63.2,
+      "y": 37.7,
       "queue": "na",
       "status": "open"
     },
     {
       "id": "ride-mtyq583p-08ivw",
       "name": "Speedway Bar & Kitchen",
-      "x": 67,
-      "y": 27.4,
+      "x": 67.2,
+      "y": 26.4,
       "queue": "na",
       "status": "open"
     },
@@ -234,7 +234,7 @@
       "id": "ride-mtz2vfxk-iaftm",
       "name": "Staff Entrance",
       "x": 64.6,
-      "y": 13.6,
+      "y": 10.9,
       "queue": "na",
       "status": "open",
       "customHours": {
