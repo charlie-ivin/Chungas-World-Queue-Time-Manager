@@ -109,8 +109,8 @@
     {
       "id": "tmp-9",
       "name": "End Den",
-      "x": 69.4,
-      "y": 64.9,
+      "x": 68.4,
+      "y": 77.2,
       "queue": 0,
       "status": "closed"
     },
@@ -255,6 +255,14 @@
         "open": "10:00",
         "close": "18:00"
       }
+    },
+    {
+      "id": "ride-mu050h3v-0yll8",
+      "name": "No Way Out",
+      "x": 69,
+      "y": 66.7,
+      "queue": 0,
+      "status": "closed"
     }
   ]
 }
