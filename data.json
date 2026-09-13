@@ -102,7 +102,7 @@
       "status": "open",
       "customHours": {
         "enabled": true,
-        "open": "10:00",
+        "open": "11:00",
         "close": "18:00"
       }
     },
@@ -189,7 +189,7 @@
       "status": "open",
       "customHours": {
         "enabled": true,
-        "open": "10:00",
+        "open": "11:00",
         "close": "18:00"
       }
     },
@@ -226,7 +226,7 @@
       "status": "open",
       "customHours": {
         "enabled": true,
-        "open": "00:00",
+        "open": "11:00",
         "close": "18:00"
       }
     }
