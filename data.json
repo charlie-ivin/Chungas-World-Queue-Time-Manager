@@ -96,8 +96,8 @@
     {
       "id": "ride-4",
       "name": "The Zoo",
-      "x": 84.7,
-      "y": 67.1,
+      "x": 83.3,
+      "y": 67.8,
       "queue": "na",
       "status": "open",
       "customHours": {
@@ -196,8 +196,8 @@
     {
       "id": "ride-mtyonthy-8gwku",
       "name": "Indoor Seating",
-      "x": 74.8,
-      "y": 51.3,
+      "x": 74.1,
+      "y": 51.4,
       "queue": "na",
       "status": "open"
     },
@@ -220,8 +220,8 @@
     {
       "id": "ride-mtyqdb6n-kvmao",
       "name": "Park Hotel Access",
-      "x": 90.6,
-      "y": 56.2,
+      "x": 91.4,
+      "y": 57.7,
       "queue": "na",
       "status": "open",
       "customHours": {
@@ -242,6 +242,14 @@
         "open": "05:00",
         "close": "23:00"
       }
+    },
+    {
+      "id": "ride-mtzxbxt4-49t0i",
+      "name": "New ride",
+      "x": 83.3,
+      "y": 67.8,
+      "queue": 0,
+      "status": "open"
     }
   ]
 }
