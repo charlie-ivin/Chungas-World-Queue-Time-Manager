@@ -229,6 +229,19 @@
         "open": "11:00",
         "close": "18:00"
       }
+    },
+    {
+      "id": "ride-mtz2vfxk-iaftm",
+      "name": "Staff Entrance",
+      "x": 64.6,
+      "y": 13.6,
+      "queue": "na",
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "05:00",
+        "close": "23:00"
+      }
     }
   ]
 }
