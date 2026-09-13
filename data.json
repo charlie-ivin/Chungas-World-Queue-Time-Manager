@@ -176,7 +176,7 @@
       "id": "ride-fix-3",
       "name": "Chungas Speedway",
       "x": 59.9,
-      "y": 17.8,
+      "y": 22.5,
       "queue": 15,
       "status": "open"
     },
@@ -212,8 +212,8 @@
     {
       "id": "ride-mtyq583p-08ivw",
       "name": "Speedway Bar & Kitchen",
-      "x": 66.3,
-      "y": 25.1,
+      "x": 66.6,
+      "y": 29.7,
       "queue": "na",
       "status": "open"
     },
