@@ -268,6 +268,21 @@ html.map-only-html, body.map-only {
   max-width: 1400px;
 }
 
+/* ── Mobile map scrolling/zooming ─────────────────────────── */
+.map-scroll {
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+@media (max-width: 900px) {
+  .map-wrap-tight .map-scroll .map-canvas {
+    min-width: 900px;
+    max-width: none;
+  }
+}
+
 .map-status-badge {
   position: absolute;
   top: 12px;
@@ -311,24 +326,6 @@ html.map-only-html, body.map-only {
 
   .map-wrap {
     padding: 10px;
-  }
-
-  .pin-marker {
-    width: 20px;
-    height: 20px;
-    border-width: 2px;
-  }
-
-  .pin-label {
-    font-size: 10px;
-    padding: 2px 5px;
-    max-width: 100px;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .pin-queue {
-    font-size: 9px;
   }
 
   .legend {
