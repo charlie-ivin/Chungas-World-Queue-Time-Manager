@@ -219,13 +219,13 @@
     },
     {
       "id": "ride-mtyqdb6n-kvmao",
-      "name": "Park Hotel Entrance",
+      "name": "Park Hotel Access",
       "x": 90.6,
       "y": 56.2,
       "queue": "na",
       "status": "open",
       "customHours": {
-        "enabled": true,
+        "enabled": false,
         "open": "11:00",
         "close": "18:00"
       }
