@@ -225,7 +225,7 @@
       "queue": "na",
       "status": "open",
       "customHours": {
-        "enabled": true,
+        "enabled": false,
         "open": "10:00",
         "close": "18:00"
       }
