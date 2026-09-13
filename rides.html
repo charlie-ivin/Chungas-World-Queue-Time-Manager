@@ -63,21 +63,39 @@ async function render() {
     let effectiveStatus = baseStatus;
     let statusText;
 
-    if (baseStatus !== "open") {
+    if (baseStatus === "closed" && ride.reopensAt) {
+      statusText = `Reopening · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.reopensAt))}`;
+    } else if (baseStatus !== "open") {
       statusText = ParkCore.STATUS_LABELS[effectiveStatus];
-    } else if (!parkStatus.isOpen) {
-      effectiveStatus = "park_closed";
-      statusText = parkStatus.isOpeningSoon ? "Opening soon" : "Park closed";
     } else if (ride.customHours && ride.customHours.enabled) {
       const cs = ParkCore.computeRideCustomStatus(ride.customHours);
-      if (!cs.inWindow) {
-        effectiveStatus = cs.before ? "ride_opening_soon" : "ride_closed_today";
-        statusText = cs.before
-          ? `Opens ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(ride.customHours.open))}`
-          : "Closed for today";
+      const customOpenMins = ParkCore.timeStringToMinutes(ride.customHours.open);
+      const parkOpenMins = ParkCore.timeStringToMinutes(data.hours.open);
+      const isActuallyDelayed =
+        customOpenMins !== null && parkOpenMins !== null && customOpenMins > parkOpenMins;
+      const isEarlyOpen =
+        customOpenMins !== null && parkOpenMins !== null && customOpenMins < parkOpenMins;
+
+      if (cs.inWindow) {
+        statusText = ride.queue === "na" ? "Open" : `${ride.queue} min`;
+      } else if (!cs.before) {
+        effectiveStatus = "ride_closed_today";
+        statusText = "Closed for today";
+      } else if (isEarlyOpen) {
+        effectiveStatus = "ride_opening_soon";
+        statusText = `Opening Early · Opens ${ParkCore.formatMinutes(customOpenMins)}`;
+      } else if (isActuallyDelayed) {
+        effectiveStatus = "ride_opening_soon";
+        statusText = `Delayed Opening · Opens ${ParkCore.formatMinutes(customOpenMins)}`;
+      } else if (!parkStatus.isOpen) {
+        effectiveStatus = "park_closed";
+        statusText = parkStatus.isOpeningSoon ? "Opening soon" : "Park closed";
       } else {
         statusText = ride.queue === "na" ? "Open" : `${ride.queue} min`;
       }
+    } else if (!parkStatus.isOpen) {
+      effectiveStatus = "park_closed";
+      statusText = parkStatus.isOpeningSoon ? "Opening soon" : "Park closed";
     } else {
       statusText = ride.queue === "na" ? "Open" : `${ride.queue} min`;
     }
