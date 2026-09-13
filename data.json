@@ -244,19 +244,6 @@
       }
     },
     {
-      "id": "ride-mtzxbxt4-49t0i",
-      "name": "The Zoo",
-      "x": 85.2,
-      "y": 68.9,
-      "queue": "na",
-      "status": "open",
-      "customHours": {
-        "enabled": true,
-        "open": "10:00",
-        "close": "18:00"
-      }
-    },
-    {
       "id": "ride-mu050h3v-0yll8",
       "name": "No Way Out",
       "x": 68.9,
