@@ -73,7 +73,7 @@
       "id": "tmp-5",
       "name": "Minecraft Mandrill Mayhem",
       "x": 27.2,
-      "y": 15.9,
+      "y": 18.4,
       "queue": 5,
       "status": "open"
     },
@@ -117,8 +117,8 @@
     {
       "id": "ride-5",
       "name": "X End Time",
-      "x": 30.2,
-      "y": 36.5,
+      "x": 32.1,
+      "y": 36.1,
       "queue": 0,
       "status": "closed"
     },
