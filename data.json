@@ -98,7 +98,7 @@
       "name": "The Zoo",
       "x": 83.1,
       "y": 66.7,
-      "queue": 0,
+      "queue": "na",
       "status": "open",
       "customHours": {
         "enabled": true,
@@ -175,8 +175,8 @@
     {
       "id": "ride-fix-3",
       "name": "Chungas Speedway",
-      "x": 60.2,
-      "y": 21.6,
+      "x": 60.3,
+      "y": 20.3,
       "queue": 15,
       "status": "open"
     },
