@@ -245,11 +245,16 @@
     },
     {
       "id": "ride-mtzxbxt4-49t0i",
-      "name": "New ride",
+      "name": "The Zoo",
       "x": 83.3,
       "y": 67.8,
-      "queue": 0,
-      "status": "open"
+      "queue": "na",
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "10:00",
+        "close": "19:00"
+      }
     }
   ]
 }
