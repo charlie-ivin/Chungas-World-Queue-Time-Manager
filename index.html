@@ -79,11 +79,21 @@ async function render() {
       const parkOpenMins = ParkCore.timeStringToMinutes(data.hours.open);
       const isActuallyDelayed =
         customOpenMins !== null && parkOpenMins !== null && customOpenMins > parkOpenMins;
+      const isEarlyOpen =
+        customOpenMins !== null && parkOpenMins !== null && customOpenMins < parkOpenMins;
 
-      if (!cs.inWindow && !cs.before) {
+      if (cs.inWindow) {
+        // Ride's own hours say it's running right now — this can be
+        // true even if the park's own status pill still says closed
+        // (e.g. Car Park opening ahead of the main gates).
+        queueText = ride.queue === "na" ? "Open" : `${ride.queue} min queue`;
+      } else if (!cs.before) {
         effectiveStatus = "ride_closed_today";
         queueText = "Closed for today";
-      } else if (!cs.inWindow && cs.before && isActuallyDelayed) {
+      } else if (isEarlyOpen) {
+        effectiveStatus = "ride_opening_soon";
+        queueText = `Opening Early · Opens ${ParkCore.formatMinutes(customOpenMins)}`;
+      } else if (isActuallyDelayed) {
         effectiveStatus = "ride_opening_soon";
         queueText = `Delayed Opening · Opens ${ParkCore.formatMinutes(customOpenMins)}`;
       } else if (!parkStatus.isOpen) {
