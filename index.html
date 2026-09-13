@@ -22,16 +22,19 @@
 <script src="config.js?v=19"></script>
 <script src="park-core.js?v=19"></script>
 <script>
+let imageFitted = false;
+
 async function render() {
   const canvas = document.getElementById("mapCanvas");
   const pill = document.getElementById("statusPill");
 
-  if (ParkCore.CFG.mapImageUrl) {
+  if (ParkCore.CFG.mapImageUrl && !imageFitted) {
     canvas.classList.add("has-image");
     canvas.style.backgroundImage = `url(${ParkCore.CFG.mapImageUrl})`;
     await ParkCore.fitCanvasToImage(canvas, ParkCore.CFG.mapImageUrl);
     const note = document.getElementById("placeholderNote");
     if (note) note.remove();
+    imageFitted = true;
   }
 
   canvas.querySelectorAll(".pin").forEach((p) => p.remove());
