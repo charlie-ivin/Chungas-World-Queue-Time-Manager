@@ -56,8 +56,8 @@
       "queue": "na",
       "status": "open",
       "customHours": {
-        "enabled": false,
-        "open": "09:00",
+        "enabled": true,
+        "open": "08:00",
         "close": "18:00"
       }
     },
