@@ -242,6 +242,14 @@
         "open": "05:00",
         "close": "23:00"
       }
+    },
+    {
+      "id": "ride-mtzw5dv5-f2doz",
+      "name": "Old Town Road Plaza",
+      "x": 55.9,
+      "y": 48.9,
+      "queue": "na",
+      "status": "open"
     }
   ]
 }
