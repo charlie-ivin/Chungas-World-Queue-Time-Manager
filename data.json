@@ -3,7 +3,7 @@
     "open": "10:00",
     "close": "19:00",
     "extended": false,
-    "closedAllDay": false,
+    "closedAllDay": true,
     "privateEvent": {
       "enabled": false,
       "useParkHours": true,
