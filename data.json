@@ -21,7 +21,7 @@
       "name": "Nether Sky",
       "x": 23.5,
       "y": 38.1,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -66,7 +66,7 @@
       "name": "Jumanji Roll",
       "x": 76.8,
       "y": 73.3,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -82,7 +82,7 @@
       "name": "Money Times",
       "x": 15.5,
       "y": 40.9,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
@@ -135,7 +135,7 @@
       "name": "Tower Drop",
       "x": 40.7,
       "y": 33.8,
-      "queue": 0,
+      "queue": 5,
       "status": "open"
     },
     {
