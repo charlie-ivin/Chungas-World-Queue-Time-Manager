@@ -1,7 +1,7 @@
 {
   "hours": {
     "open": "10:00",
-    "close": "16:00",
+    "close": "19:00",
     "extended": false,
     "closedAllDay": false,
     "privateEvent": {
@@ -58,7 +58,7 @@
       "customHours": {
         "enabled": true,
         "open": "08:00",
-        "close": "16:00"
+        "close": "19:00"
       }
     },
     {
@@ -103,7 +103,7 @@
       "customHours": {
         "enabled": true,
         "open": "10:00",
-        "close": "16:00"
+        "close": "18:00"
       }
     },
     {
@@ -161,7 +161,7 @@
       "customHours": {
         "enabled": true,
         "open": "11:00",
-        "close": "16:00"
+        "close": "19:00"
       }
     },
     {
@@ -190,7 +190,7 @@
       "customHours": {
         "enabled": true,
         "open": "10:00",
-        "close": "16:00"
+        "close": "18:00"
       }
     },
     {
@@ -240,7 +240,7 @@
       "customHours": {
         "enabled": true,
         "open": "06:00",
-        "close": "20:00"
+        "close": "23:00"
       }
     },
     {
