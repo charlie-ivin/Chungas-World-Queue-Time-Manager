@@ -1,7 +1,7 @@
 {
   "hours": {
     "open": "10:00",
-    "close": "19:00",
+    "close": "16:00",
     "extended": false,
     "closedAllDay": false,
     "privateEvent": {
@@ -240,7 +240,7 @@
       "customHours": {
         "enabled": true,
         "open": "06:00",
-        "close": "23:00"
+        "close": "20:00"
       }
     },
     {
