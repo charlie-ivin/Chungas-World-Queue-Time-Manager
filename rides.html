@@ -45,10 +45,35 @@ async function render() {
     : parkStatus.isOpeningSoon
     ? `Opening Soon · ${ParkCore.formatMinutes(ParkCore.timeStringToMinutes(data.hours.open))}`
     : "Park Closed";
-  pill.classList.toggle("closed", (!parkStatus.isOpen && !parkStatus.isOpeningSoon) || parkStatus.isSeasonalClosure);
-  pill.classList.toggle("extended", (!!data.hours.extended || parkStatus.isOpeningSoon) && !parkStatus.isPrivateEvent && !parkStatus.isClosingSoon);
-  pill.classList.toggle("closing-soon", parkStatus.isClosingSoon);
-  pill.classList.toggle("private-event", parkStatus.isPrivateEvent);
+
+  const isClosed = (!parkStatus.isOpen && !parkStatus.isOpeningSoon) || parkStatus.isSeasonalClosure;
+  const isExtended = (!!data.hours.extended || parkStatus.isOpeningSoon) && !parkStatus.isPrivateEvent && !parkStatus.isClosingSoon;
+  const isClosingSoon = parkStatus.isClosingSoon;
+  const isPrivateEvent = parkStatus.isPrivateEvent;
+
+  pill.classList.toggle("closed", isClosed);
+  pill.classList.toggle("extended", isExtended);
+  pill.classList.toggle("closing-soon", isClosingSoon);
+  pill.classList.toggle("private-event", isPrivateEvent);
+
+  // Belt-and-braces: force the correct color with an inline style too,
+  // so nothing external can override it regardless of class state.
+  if (isClosed) {
+    pill.style.background = "#c1432f";
+    pill.style.color = "#fff";
+  } else if (isPrivateEvent) {
+    pill.style.background = "#8fd0ea";
+    pill.style.color = "#1c1c19";
+  } else if (isClosingSoon) {
+    pill.style.background = "#d98c2b";
+    pill.style.color = "#1c1c19";
+  } else if (isExtended) {
+    pill.style.background = "#f2b632";
+    pill.style.color = "#1c1c19";
+  } else {
+    pill.style.background = "#5b8a2c";
+    pill.style.color = "#fff";
+  }
 
   table.innerHTML = "";
 
