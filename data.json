@@ -156,7 +156,7 @@
       "name": "Ice Boat Racing",
       "x": 38.9,
       "y": 76.1,
-      "queue": 10,
+      "queue": 0,
       "status": "open",
       "customHours": {
         "enabled": true,
