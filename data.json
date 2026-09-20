@@ -5,10 +5,10 @@
     "extended": false,
     "closedAllDay": false,
     "privateEvent": {
-      "enabled": false,
-      "useParkHours": true,
-      "open": "15:44",
-      "close": "22:45"
+      "enabled": true,
+      "useParkHours": false,
+      "open": "19:00",
+      "close": "22:00"
     },
     "seasonalClosure": {
       "enabled": false,
