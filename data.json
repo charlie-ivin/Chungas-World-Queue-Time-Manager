@@ -5,8 +5,8 @@
     "extended": false,
     "closedAllDay": false,
     "privateEvent": {
-      "enabled": true,
-      "useParkHours": false,
+      "enabled": false,
+      "useParkHours": true,
       "open": "19:00",
       "close": "22:00"
     },
