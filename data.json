@@ -11,7 +11,7 @@
       "close": "22:00"
     },
     "seasonalClosure": {
-      "enabled": false,
+      "enabled": true,
       "reopenText": "October 1st"
     }
   },
