@@ -30,7 +30,12 @@
       "x": 48.9,
       "y": 55.5,
       "queue": "na",
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "15:00",
+        "close": "21:00"
+      }
     },
     {
       "id": "tmp-8",
@@ -127,7 +132,7 @@
       "queue": 15,
       "status": "open",
       "customHours": {
-        "enabled": true,
+        "enabled": false,
         "open": "15:00",
         "close": "21:00"
       }
