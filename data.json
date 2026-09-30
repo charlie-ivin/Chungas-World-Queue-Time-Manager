@@ -112,7 +112,12 @@
       "x": 68.5,
       "y": 78.1,
       "queue": "na",
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "15:00",
+        "close": "21:00"
+      }
     },
     {
       "id": "ride-5",
@@ -120,7 +125,12 @@
       "x": 32.1,
       "y": 36.1,
       "queue": 15,
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "15:00",
+        "close": "21:00"
+      }
     },
     {
       "id": "tmp-2",
@@ -249,7 +259,12 @@
       "x": 68.9,
       "y": 64.8,
       "queue": "na",
-      "status": "open"
+      "status": "open",
+      "customHours": {
+        "enabled": true,
+        "open": "15:00",
+        "close": "21:00"
+      }
     }
   ]
 }
