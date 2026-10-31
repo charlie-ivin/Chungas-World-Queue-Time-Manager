@@ -119,7 +119,7 @@
       "queue": "na",
       "status": "closed",
       "customHours": {
-        "enabled": false,
+        "enabled": true,
         "open": "15:00",
         "close": "21:00"
       }
@@ -130,9 +130,9 @@
       "x": 34.1,
       "y": 35.8,
       "queue": 20,
-      "status": "open",
+      "status": "closed",
       "customHours": {
-        "enabled": false,
+        "enabled": true,
         "open": "15:00",
         "close": "21:00"
       }
@@ -266,7 +266,7 @@
       "queue": "na",
       "status": "closed",
       "customHours": {
-        "enabled": false,
+        "enabled": true,
         "open": "15:00",
         "close": "21:00"
       }
