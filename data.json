@@ -11,8 +11,8 @@
       "close": "22:00"
     },
     "seasonalClosure": {
-      "enabled": false,
-      "reopenText": "October 1st"
+      "enabled": true,
+      "reopenText": "Next Year"
     }
   },
   "rides": [
