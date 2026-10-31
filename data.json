@@ -59,7 +59,7 @@
       "x": 82.5,
       "y": 86.5,
       "queue": "na",
-      "status": "open",
+      "status": "closed",
       "customHours": {
         "enabled": true,
         "open": "08:00",
