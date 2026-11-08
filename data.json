@@ -114,7 +114,7 @@
     {
       "id": "ride-5",
       "name": "X End Time",
-      "x": 33,
+      "x": 30.1,
       "y": 37.4,
       "queue": 20,
       "status": "closed",
@@ -256,6 +256,14 @@
       "x": 40,
       "y": 61.6,
       "queue": 10,
+      "status": "open"
+    },
+    {
+      "id": "ride-mw8fghpj-dp1ym",
+      "name": "Amity Cove Seating Area",
+      "x": 36.1,
+      "y": 45.9,
+      "queue": "na",
       "status": "open"
     }
   ]
