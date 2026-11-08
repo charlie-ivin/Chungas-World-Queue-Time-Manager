@@ -19,8 +19,8 @@
     {
       "id": "tmp-4",
       "name": "Nether Sky",
-      "x": 24.8,
-      "y": 39.5,
+      "x": 24.3,
+      "y": 40.4,
       "queue": 25,
       "status": "open"
     },
@@ -114,8 +114,8 @@
     {
       "id": "ride-5",
       "name": "X End Time",
-      "x": 30.1,
-      "y": 37.4,
+      "x": 30.7,
+      "y": 37.2,
       "queue": 20,
       "status": "closed",
       "customHours": {
