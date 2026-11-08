@@ -249,6 +249,14 @@
         "open": "15:00",
         "close": "21:00"
       }
+    },
+    {
+      "id": "ride-mw8fe6ts-q1kn5",
+      "name": "Tidal Wave",
+      "x": 40,
+      "y": 61.6,
+      "queue": 10,
+      "status": "open"
     }
   ]
 }
