@@ -80,8 +80,8 @@
     {
       "id": "tmp-7",
       "name": "Old Town Road",
-      "x": 61,
-      "y": 59.8,
+      "x": 58.8,
+      "y": 61.6,
       "queue": 15,
       "status": "open"
     },
@@ -148,7 +148,7 @@
     {
       "id": "tmp-1",
       "name": "Ice Boat Racing",
-      "x": 41.4,
+      "x": 39.4,
       "y": 75.8,
       "queue": 15,
       "status": "open",
@@ -161,8 +161,8 @@
     {
       "id": "ride-fix-2",
       "name": "The Swarm",
-      "x": 52.2,
-      "y": 69.9,
+      "x": 49.6,
+      "y": 68.5,
       "queue": 25,
       "status": "open"
     },
