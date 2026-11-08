@@ -19,23 +19,23 @@
     {
       "id": "tmp-4",
       "name": "Nether Sky",
-      "x": 25.8,
-      "y": 39.2,
+      "x": 24.8,
+      "y": 39.5,
       "queue": 25,
       "status": "open"
     },
     {
       "id": "tmp-8",
       "name": "Minecraft Hyperia",
-      "x": 18.8,
-      "y": 28.3,
+      "x": 17.5,
+      "y": 29.9,
       "queue": 35,
       "status": "open"
     },
     {
       "id": "tmp-10",
       "name": "Minecraft Vampire",
-      "x": 43,
+      "x": 41.3,
       "y": 19.3,
       "queue": 0,
       "status": "closed"
@@ -43,8 +43,8 @@
     {
       "id": "ride-1",
       "name": "Car Park",
-      "x": 82.5,
-      "y": 86.5,
+      "x": 81,
+      "y": 87.2,
       "queue": "na",
       "status": "closed",
       "customHours": {
@@ -56,24 +56,24 @@
     {
       "id": "ride-2",
       "name": "Jumanji Roll",
-      "x": 79.7,
-      "y": 72.8,
+      "x": 78.1,
+      "y": 71.7,
       "queue": 15,
       "status": "open"
     },
     {
       "id": "tmp-5",
       "name": "Minecraft Mandrill Mayhem",
-      "x": 30.4,
-      "y": 19.4,
+      "x": 28.4,
+      "y": 20.9,
       "queue": 20,
       "status": "open"
     },
     {
       "id": "ride-3",
       "name": "Money Times",
-      "x": 15.7,
-      "y": 44.1,
+      "x": 16.7,
+      "y": 40.2,
       "queue": 10,
       "status": "open"
     },
@@ -88,8 +88,8 @@
     {
       "id": "ride-4",
       "name": "The Zoo",
-      "x": 87.5,
-      "y": 67.4,
+      "x": 85.8,
+      "y": 67.1,
       "queue": "na",
       "status": "closed",
       "customHours": {
@@ -101,8 +101,8 @@
     {
       "id": "tmp-9",
       "name": "End Den",
-      "x": 71.5,
-      "y": 76.3,
+      "x": 69,
+      "y": 76.7,
       "queue": "na",
       "status": "closed",
       "customHours": {
@@ -114,8 +114,8 @@
     {
       "id": "ride-5",
       "name": "X End Time",
-      "x": 34.1,
-      "y": 35.8,
+      "x": 33,
+      "y": 37.4,
       "queue": 20,
       "status": "closed",
       "customHours": {
@@ -127,8 +127,8 @@
     {
       "id": "tmp-3",
       "name": "Tower Drop",
-      "x": 43.3,
-      "y": 34,
+      "x": 40.9,
+      "y": 34.9,
       "queue": 10,
       "status": "open"
     },
@@ -169,16 +169,16 @@
     {
       "id": "ride-fix-3",
       "name": "Chungas Speedway",
-      "x": 61.9,
-      "y": 19.8,
+      "x": 59.6,
+      "y": 21,
       "queue": 30,
       "status": "open"
     },
     {
       "id": "ride-fix-1",
       "name": "Under The Sea",
-      "x": 93,
-      "y": 73.5,
+      "x": 91.6,
+      "y": 76.3,
       "queue": "na",
       "status": "closed",
       "customHours": {
@@ -198,24 +198,24 @@
     {
       "id": "ride-mtyq3esf-7ah0t",
       "name": "The Speedway Shop",
-      "x": 65.6,
-      "y": 35.3,
+      "x": 63.2,
+      "y": 36.1,
       "queue": "na",
       "status": "open"
     },
     {
       "id": "ride-mtyq583p-08ivw",
       "name": "Speedway Bar & Kitchen",
-      "x": 70.1,
-      "y": 27.8,
+      "x": 68.6,
+      "y": 27.3,
       "queue": "na",
       "status": "open"
     },
     {
       "id": "ride-mtyqdb6n-kvmao",
       "name": "Park Hotel Access",
-      "x": 94.3,
-      "y": 55.7,
+      "x": 92,
+      "y": 54.3,
       "queue": "na",
       "status": "open",
       "customHours": {
@@ -227,8 +227,8 @@
     {
       "id": "ride-mtz2vfxk-iaftm",
       "name": "Staff Entrance",
-      "x": 66.5,
-      "y": 14.8,
+      "x": 65.4,
+      "y": 16.1,
       "queue": "na",
       "status": "open",
       "customHours": {
@@ -240,8 +240,8 @@
     {
       "id": "ride-mu050h3v-0yll8",
       "name": "No Way Out",
-      "x": 71.3,
-      "y": 67.1,
+      "x": 69,
+      "y": 65.8,
       "queue": "na",
       "status": "closed",
       "customHours": {
