@@ -5,9 +5,9 @@
     "extended": false,
     "closedAllDay": false,
     "privateEvent": {
-      "enabled": false,
-      "useParkHours": true,
-      "open": "19:00",
+      "enabled": true,
+      "useParkHours": false,
+      "open": "01:00",
       "close": "22:00"
     },
     "seasonalClosure": {
