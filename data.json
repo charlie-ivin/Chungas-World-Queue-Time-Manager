@@ -114,8 +114,8 @@
     {
       "id": "tmp-3",
       "name": "Tower Drop",
-      "x": 43.7,
-      "y": 35,
+      "x": 44.2,
+      "y": 33.9,
       "queue": 10,
       "status": "open"
     },
@@ -264,7 +264,7 @@
     {
       "id": "ride-mw8kog84-m7bve",
       "name": "AC Fish & Chips",
-      "x": 36.1,
+      "x": 35.8,
       "y": 35.8,
       "queue": "na",
       "status": "open"
