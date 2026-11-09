@@ -112,19 +112,6 @@
       }
     },
     {
-      "id": "ride-5",
-      "name": "X End Time",
-      "x": 30.7,
-      "y": 37.2,
-      "queue": 20,
-      "status": "closed",
-      "customHours": {
-        "enabled": true,
-        "open": "15:00",
-        "close": "21:00"
-      }
-    },
-    {
       "id": "tmp-3",
       "name": "Tower Drop",
       "x": 43.9,
@@ -285,7 +272,7 @@
     {
       "id": "ride-mw8l68tp-v3z93",
       "name": "Old Town Plaza",
-      "x": 57.5,
+      "x": 57.1,
       "y": 52.2,
       "queue": "na",
       "status": "open"
