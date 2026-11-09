@@ -281,6 +281,14 @@
       "y": 35.6,
       "queue": "na",
       "status": "open"
+    },
+    {
+      "id": "ride-mw8l68tp-v3z93",
+      "name": "Old Town Plaza",
+      "x": 57.5,
+      "y": 52.2,
+      "queue": "na",
+      "status": "open"
     }
   ]
 }
