@@ -127,8 +127,8 @@
     {
       "id": "tmp-3",
       "name": "Tower Drop",
-      "x": 40.9,
-      "y": 34.9,
+      "x": 43.9,
+      "y": 34.8,
       "queue": 10,
       "status": "open"
     },
