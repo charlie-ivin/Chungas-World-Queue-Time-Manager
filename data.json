@@ -252,7 +252,7 @@
     },
     {
       "id": "ride-mw8fe6ts-q1kn5",
-      "name": "NEW FOR 2027: Tidal Wave",
+      "name": "Tidal Wave",
       "x": 40,
       "y": 61.6,
       "queue": 10,
@@ -260,7 +260,7 @@
     },
     {
       "id": "ride-mw8fghpj-dp1ym",
-      "name": "NEW FOR 2027: Amity Cove Plaza",
+      "name": "Amity Cove Plaza",
       "x": 36.1,
       "y": 44,
       "queue": "na",
@@ -268,11 +268,19 @@
     },
     {
       "id": "ride-mw8k455j-4o7up",
-      "name": "NEW FOR 2027: DEAD BEAT",
+      "name": "DEAD BEAT",
       "x": 25.7,
       "y": 76.3,
       "queue": 25,
       "status": "closed"
+    },
+    {
+      "id": "ride-mw8kog84-m7bve",
+      "name": "Amity Cove Fish And Chips",
+      "x": 36.4,
+      "y": 35.6,
+      "queue": "na",
+      "status": "open"
     }
   ]
 }
